@@ -1,31 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to check two given integers,
-        and return true if one of them is 30 or if their sum is 30.
+        Write a C# Sharp program to check  a given integer
+        and return true if it is within 10 of 100 or 200.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(act(30, 0));
-            Console.WriteLine(act(0, 30));
-            Console.WriteLine(act(25, 5));
-            Console.WriteLine(act(25, 9));
+            Console.WriteLine(act(103));
+            Console.WriteLine(act(90));
+            Console.WriteLine(act(89));
 
             Console.ReadKey();
         }
 
-        private static bool act(int x, int y)
+        private static bool act(int x)
         {
-            return x == 30 || y == 30 || x + y == 30;
+            //return (x >= 90 && x <= 110) || (x >= 190 && x <= 210);
+            return Math.Abs(100 - x) <= 10 || Math.Abs(200 - x) <= 10;
         }
     }
 }
