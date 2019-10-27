@@ -3,23 +3,24 @@
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to create a new string where 'if' is added to the front of a given string.
-        If the string already begins with 'if', return the string unchanged.
+        Write a C# Sharp program to remove the character in a given position of a given string.
+        The given position will be in the range 0.str.length()-1 inclusive).
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(act("if else"));
-            Console.WriteLine(act("esle"));
+            Console.WriteLine(act("Python", 1));
+            Console.WriteLine(act("Python", 0));
+            Console.WriteLine(act("Python", 4));
 
             Console.ReadKey();
         }
 
-        private static string act(string str)
+        private static string act(string str, int position)
         {
-            return str.StartsWith("if ") ? str : "if " + str;
+            return str.Remove(position, 1);
         }
     }
 }
