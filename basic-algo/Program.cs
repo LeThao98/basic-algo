@@ -3,25 +3,23 @@
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to check  a given integer
-        and return true if it is within 10 of 100 or 200.
+        Write a C# Sharp program to create a new string where 'if' is added to the front of a given string.
+        If the string already begins with 'if', return the string unchanged.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(act(103));
-            Console.WriteLine(act(90));
-            Console.WriteLine(act(89));
+            Console.WriteLine(act("if else"));
+            Console.WriteLine(act("esle"));
 
             Console.ReadKey();
         }
 
-        private static bool act(int x)
+        private static string act(string str)
         {
-            //return (x >= 90 && x <= 110) || (x >= 190 && x <= 210);
-            return Math.Abs(100 - x) <= 10 || Math.Abs(200 - x) <= 10;
+            return str.StartsWith("if ") ? str : "if " + str;
         }
     }
 }
