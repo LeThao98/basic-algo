@@ -7,24 +7,25 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to get the absolute difference between n and 51.
-        If n is greater than 51 return triple the absolute difference.
+        Write a C# Sharp program to check two given integers,
+        and return true if one of them is 30 or if their sum is 30.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(act(52));
-            Console.WriteLine(act(50));
-            Console.WriteLine(act(51));
+            Console.WriteLine(act(30, 0));
+            Console.WriteLine(act(0, 30));
+            Console.WriteLine(act(25, 5));
+            Console.WriteLine(act(25, 9));
 
             Console.ReadKey();
         }
 
-        private static int act(int a)
+        private static bool act(int x, int y)
         {
-            return a > 51 ? 3 * (a - 51) : a - 51;
+            return x == 30 || y == 30 || x + y == 30;
         }
     }
 }
