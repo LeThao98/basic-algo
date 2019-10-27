@@ -3,31 +3,24 @@
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to check if a given positive number is a multiple of 3 or a multiple of 7.
+       Write a C# Sharp program to create a new string taking the first 3 characters of a given string and
+       return the string with the 3 characters added at both the front and back.
+       If the given string length is less than 3, use whatever characters are there.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(act(3));
-            Console.WriteLine(act(14));
-            Console.WriteLine(act(13));
-            Console.WriteLine(act(21));
+            Console.WriteLine(act("Python"));
+            Console.WriteLine(act("xy"));
 
             Console.ReadKey();
         }
 
-        private static int act(int x)
+        private static string act(string x)
         {
-            if (x % 3 == 0 && x % 7 == 0)
-                return 3;
-            else if (x % 7 == 0)
-                return 2;
-            else if (x % 3 == 0)
-                return 1;
-            else
-                return 0;
+            return x.Length < 3 ? x + x + x : x.Substring(0, 3) + x + x.Substring(0, 3);
         }
     }
 }
