@@ -3,8 +3,8 @@
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to create a new string which is 4 copies of the 2 front characters of a given string.
-        If the given string length is less than 2 return the original string.
+       Write a C# Sharp program to create  a new string with the last char
+       added at the front and back of a given string of length 1 or more.
     */
 
     internal class Program
@@ -20,10 +20,8 @@ namespace basic_algo
 
         private static string act(string str)
         {
-            return str.Length >= 2 ?
-                str.Substring(0, 2) + str.Substring(0, 2) + str.Substring(0, 2) + str.Substring(0, 2)
-                :
-                str;
+            string last = str.Substring(str.Length - 1, 1);
+            return last + str + last;
         }
     }
 }
