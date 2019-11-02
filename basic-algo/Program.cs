@@ -3,24 +3,25 @@
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check if two given non-negative integers have the same last digit.
+         Write a C# Sharp program to convert the last 3 characters of a given string in upper case. If the length
+         of the string has less than 3 then uppercase all the characters.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(123, 456));
-            Console.WriteLine(test(12, 512));
-            Console.WriteLine(test(7, 87));
-            Console.WriteLine(test(12, 45));
+            Console.WriteLine(test("Python"));
+            Console.WriteLine(test("Javascript"));
+            Console.WriteLine(test("js"));
+            Console.WriteLine(test("PHP"));
 
             Console.ReadKey();
         }
 
-        private static bool test(int x, int y)
+        private static string test(string str)
         {
-            return x % 10 == y % 10;
+            return str.Length < 3 ? str.ToUpper() : str.Substring(0, str.Length - 3) + str.Substring(str.Length - 3).ToUpper();
         }
     }
 }
