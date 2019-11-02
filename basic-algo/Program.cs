@@ -3,29 +3,24 @@
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check if a given string contains between 2 and 4 'z' character.
+         Write a C# Sharp program to check if two given non-negative integers have the same last digit.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("frizz"));
-            Console.WriteLine(test("zane"));
-            Console.WriteLine(test("Zazz"));
-            Console.WriteLine(test("false"));
+            Console.WriteLine(test(123, 456));
+            Console.WriteLine(test(12, 512));
+            Console.WriteLine(test(7, 87));
+            Console.WriteLine(test(12, 45));
 
             Console.ReadKey();
         }
 
-        private static bool test(string str)
+        private static bool test(int x, int y)
         {
-            int count = 0;
-            foreach (char item in str)
-            {
-                if (item == 'z') count++;
-            }
-            return count > 1 && count < 4;
+            return x % 10 == y % 10;
         }
     }
 }
