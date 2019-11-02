@@ -3,24 +3,29 @@
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check the largest number among three given integers.
+         Write a C# Sharp program to check which number nearest to the value 100 among two given integers.
+         Return 0 if the two numbers are equal.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(1, 2, 3));
-            Console.WriteLine(test(1, 3, 2));
-            Console.WriteLine(test(1, 1, 1));
-            Console.WriteLine(test(1, 2, 2));
+            Console.WriteLine(test(78, 95));
+            Console.WriteLine(test(95, 95));
+            Console.WriteLine(test(99, 70));
 
             Console.ReadKey();
         }
 
-        private static int test(int x, int y, int z)
+        private static int test(int x, int y)
         {
-            return Math.Max(x, Math.Max(y, z));
+            if (x == y)
+                return 0;
+            else
+            {
+                return Math.Abs(x - 100) > Math.Abs(y - 100) ? y : x;
+            }
         }
     }
 }
