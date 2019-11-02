@@ -3,24 +3,24 @@
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check if a string 'yt' appears at index 1 in a given string.
-         If it appears return a string without 'yt' otherwise return the original string.
+         Write a C# Sharp program to check the largest number among three given integers.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("Python"));
-            Console.WriteLine(test("ytade"));
-            Console.WriteLine(test("jsues"));
+            Console.WriteLine(test(1, 2, 3));
+            Console.WriteLine(test(1, 3, 2));
+            Console.WriteLine(test(1, 1, 1));
+            Console.WriteLine(test(1, 2, 2));
 
             Console.ReadKey();
         }
 
-        private static string test(string str)
+        private static int test(int x, int y, int z)
         {
-            return str.Substring(1).StartsWith("yt") ? str.Substring(0, 1) + str.Substring(3) : str;
+            return Math.Max(x, Math.Max(y, z));
         }
     }
 }
