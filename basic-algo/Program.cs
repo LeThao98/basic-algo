@@ -3,8 +3,8 @@
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check whether two given integers are in the range 40..50 inclusive,
-         or they are both in the range 50..60 inclusive.
+         Write a C# Sharp program to find the larger value from two positive integer values that is in the range 20..30 inclusive,
+         or return 0 if neither is in that range.
     */
 
     internal class Program
@@ -12,16 +12,24 @@ namespace basic_algo
         private static void Main(string[] args)
         {
             Console.WriteLine(test(78, 95));
-            Console.WriteLine(test(25, 35));
-            Console.WriteLine(test(40, 50));
-            Console.WriteLine(test(55, 60));
+            Console.WriteLine(test(20, 30));
+            Console.WriteLine(test(21, 25));
+            Console.WriteLine(test(28, 28));
 
             Console.ReadKey();
         }
 
-        private static bool test(int x, int y)
+        private static int test(int x, int y)
         {
-            return ((x >= 40 && x <= 50) && (x >= 40 && x <= 50)) || ((x >= 50 && x <= 60) && (x >= 50 && x <= 60));
+            if ((x >= 20 && x <= 30) && (y >= 20 && y <= 30))
+            {
+                return Math.Max(x, y);
+            }
+            else if (x >= 20 && x <= 30)
+                return x;
+            else if (y >= 20 && y <= 30)
+                return y;
+            else return 0;
         }
     }
 }
