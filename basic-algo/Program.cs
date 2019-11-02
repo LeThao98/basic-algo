@@ -3,23 +3,23 @@
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to check if one given temperatures is less than 0 and the other is greater than 100.
+       Write a C# Sharp program to check two given integers whether either of them is in the range 100..200 inclusive.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(act(120, -1));
-            Console.WriteLine(act(-1, 120));
-            Console.WriteLine(act(2, 120));
+            Console.WriteLine(test(100, 199));
+            Console.WriteLine(test(250, 300));
+            Console.WriteLine(test(105, 190));
 
             Console.ReadKey();
         }
 
-        private static bool act(int x, int y)
+        private static bool test(int x, int y)
         {
-            return x < 0 && y > 100 || y < 0 && x > 100;
+            return x >= 100 && x <= 200 | y >= 100 && y <= 200;
         }
     }
 }
