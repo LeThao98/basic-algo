@@ -3,29 +3,23 @@
 namespace basic_algo
 {
     /*
-       Write a C# program to that takes a number as input and display it four times in a row (separated by blank spaces),
-       and then four times in the next row, with no separation. You should do it two times: Use Console. Write and then use {0}
+       Write a C# Sharp program to check if one given temperatures is less than 0 and the other is greater than 100.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            act();
+            Console.WriteLine(act(120, -1));
+            Console.WriteLine(act(-1, 120));
+            Console.WriteLine(act(2, 120));
 
             Console.ReadKey();
         }
 
-        private static void act()
+        private static bool act(int x, int y)
         {
-            int x;
-            Console.WriteLine("Enter a digit: ");
-            x = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("{0} {0} {0} {0}", x);
-            Console.WriteLine("{0}{0}{0}{0}", x);
-            Console.WriteLine("{0} {0} {0} {0}", x);
-            Console.WriteLine("{0}{0}{0}{0}", x);
+            return x < 0 && y > 100 || y < 0 && x > 100;
         }
     }
 }
