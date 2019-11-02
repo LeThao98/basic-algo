@@ -3,8 +3,8 @@
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check which number nearest to the value 100 among two given integers.
-         Return 0 if the two numbers are equal.
+         Write a C# Sharp program to check whether two given integers are in the range 40..50 inclusive,
+         or they are both in the range 50..60 inclusive.
     */
 
     internal class Program
@@ -12,20 +12,16 @@ namespace basic_algo
         private static void Main(string[] args)
         {
             Console.WriteLine(test(78, 95));
-            Console.WriteLine(test(95, 95));
-            Console.WriteLine(test(99, 70));
+            Console.WriteLine(test(25, 35));
+            Console.WriteLine(test(40, 50));
+            Console.WriteLine(test(55, 60));
 
             Console.ReadKey();
         }
 
-        private static int test(int x, int y)
+        private static bool test(int x, int y)
         {
-            if (x == y)
-                return 0;
-            else
-            {
-                return Math.Abs(x - 100) > Math.Abs(y - 100) ? y : x;
-            }
+            return ((x >= 40 && x <= 50) && (x >= 40 && x <= 50)) || ((x >= 50 && x <= 60) && (x >= 50 && x <= 60));
         }
     }
 }
