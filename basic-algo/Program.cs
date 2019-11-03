@@ -5,23 +5,28 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check if one of the first 4 elements in an array of integers is equal to a given element.
+         Write a C# Sharp program to check whether the sequence of numbers 1, 2, 3 appears in a given array of integers somewhere
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(new[] { 1, 2, 9, 3 }, 3));
-            Console.WriteLine(test(new[] { 1, 2, 3, 4, 5, 6 }, 2));
-            Console.WriteLine(test(new[] { 1, 2, 2, 3 }, 9));
+            Console.WriteLine(test(new[] { 1, 1, 2, 3, 1 }));
+            Console.WriteLine(test(new[] { 1, 1, 2, 4, 1 }));
+            Console.WriteLine(test(new[] { 1, 1, 2, 1, 2, 3 }));
 
             Console.ReadKey();
         }
 
-        private static bool test(int[] a, int x)
+        private static bool test(int[] a)
         {
-            return a.Length < 4 ? a.Contains(x) : a.Take(4).Contains(x);
+            for (var i = 0; i < a.Length - 2; i++)
+            {
+                if (a[i] == 1 && a[i + 1] == 2 && a[i + 2] == 3)
+                    return true;
+            }
+            return false;
         }
     }
 }
