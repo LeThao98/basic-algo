@@ -3,30 +3,31 @@
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check if the first appearance of "a" in a given string is immediately followed by another "a".
+         Write a C# Sharp program to create a new string made of every other character starting with the first from a given string.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("caabb"));
-            Console.WriteLine(test("babaaba"));
-            Console.WriteLine(test("aaaaa"));
+            Console.WriteLine(test("Python"));
+            Console.WriteLine(test("PHP"));
+            Console.WriteLine(test("JS"));
 
             Console.ReadKey();
         }
 
-        private static bool test(string str)
+        private static string test(string s)
         {
-            for (int i = 1; i < str.Length - 1; i++)
+            string result = string.Empty;
+            for (int i = 0; i < s.Length; i++)
             {
-                if (str[i] == 'a')
-                    if (str[i + 1] == 'a')
-                        return true;
-                    else return false;
+                if (i % 2 == 0)
+                {
+                    result += s[i];
+                }
             }
-            return false;
+            return result;
         }
     }
 }
