@@ -3,33 +3,30 @@
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to count the string "aa" in a given string and assume "aaa" contains two "aa".
+         Write a C# Sharp program to check if the first appearance of "a" in a given string is immediately followed by another "a".
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("bbaaccaag"));
-            Console.WriteLine(test("jjkiaaasew"));
-            Console.WriteLine(test("JSaaakoiaa"));
+            Console.WriteLine(test("caabb"));
+            Console.WriteLine(test("babaaba"));
+            Console.WriteLine(test("aaaaa"));
 
             Console.ReadKey();
         }
 
-        private static int test(string str)
+        private static bool test(string str)
         {
-            int count = 0;
             for (int i = 1; i < str.Length - 1; i++)
-            //{
-            //    if (str[i] == 'a' && str[i - 1] == 'a')
-            //        count++;
-            //}
             {
-                if (str.Substring(i, 2) == "aa")
-                    count++;
+                if (str[i] == 'a')
+                    if (str[i + 1] == 'a')
+                        return true;
+                    else return false;
             }
-            return count;
+            return false;
         }
     }
 }
