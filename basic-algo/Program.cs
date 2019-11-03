@@ -3,26 +3,30 @@
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to create a string like  "aababcabcd" from a given string "abcd".
+         Write a C# Sharp program to count a substring of length 2 appears in a given string and
+         also as the last 2 characters of the string. Do not count the end substring.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("abcd"));
-            Console.WriteLine(test("abc"));
-            Console.WriteLine(test("a"));
+            Console.WriteLine(test("abcdsab"));
+            Console.WriteLine(test("abcdabab"));
+            Console.WriteLine(test("abcabdabab"));
+            Console.WriteLine(test("abcabd"));
 
             Console.ReadKey();
         }
 
-        private static string test(string s)
+        private static int test(string s)
         {
-            string result = string.Empty;
-            for (int i = 0; i < s.Length; i++)
+            int result = 0;
+            string last2Chars = s.Substring(s.Length - 2);
+            for (int i = 0; i < s.Length - 3; i++)
             {
-                result += s.Substring(0, i + 1);
+                if (s.Substring(i, 2).Equals(last2Chars))
+                    result++;
             }
             return result;
         }
