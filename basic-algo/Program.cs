@@ -5,32 +5,32 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to count the number of two 5's are next to each other in an array of integers.
-         Also count the situation where the second 5 is actually a 6.
+         Write a C# Sharp program to check if a triple is presents in an array of integers or not.
+         If a value appears three times in a row in an array it is called a triple.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(new[] { 5, 5, 2 }));
-            Console.WriteLine(test(new[] { 5, 5, 2, 5, 5 }));
-            Console.WriteLine(test(new[] { 5, 6, 2, 9 }));
+            Console.WriteLine(test(new[] { 1, 1, 2, 2, 1 }));
+            Console.WriteLine(test(new[] { 1, 1, 2, 1, 2, 3 }));
+            Console.WriteLine(test(new[] { 1, 1, 1, 2, 2, 2, 1 }));
 
             Console.ReadKey();
         }
 
-        private static int test(int[] a)
+        private static bool test(int[] a)
         {
-            int count = 0;
-            for (int i = 0; i < a.Length - 1; i++)
+            for (int i = 0; i < a.Length - 2; i++)
             {
-                if ((a[i] == 5 && a[i + 1] == 5) || (a[i] == 5) && a[i + 1] == 6)
+                int x = a[i];
+                if (a[i + 1] == x && a[i + 2] == x)
                 {
-                    count++;
+                    return true;
                 }
             }
-            return count;
+            return false;
         }
     }
 }
