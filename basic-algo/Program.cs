@@ -5,29 +5,43 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to create a new string from a give string where a specified character
-         have been removed except starting and ending position of the given string.
+         Write a C# Sharp program to create a new string of the characters at indexes 0,1, 4,5, 8,9 ... from a given string.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("xxHxix", 'x'));
-            Console.WriteLine(test("abxdddca", 'a'));
-            Console.WriteLine(test("xabjbhtrb", 'b'));
+            Console.WriteLine(test("Python"));
+            Console.WriteLine(test("JavaScript"));
+            Console.WriteLine(test("HTML"));
 
             Console.ReadKey();
         }
 
-        private static string test(string s, char x)
+        private static string test(string s)
         {
-            for (int i = s.Length - 2; i > 0; i--)
+            int i = 0;
+            string result = string.Empty;
+            while (i < s.Length)
             {
-                if (s[i].Equals(x))
-                    s = s.Remove(i, 1);
+                if (i % 4 == 0)
+                {
+                    if (i + 1 <= s.Length)
+                    {
+                        result += s.Substring(i, 2);
+                        i += 4;
+                    }
+                    else
+                    {
+                        result += s.Substring(i, 1);
+                        i++;
+                    }
+                }
+                else
+                    i++;
             }
-            return s;
+            return result;
         }
     }
 }
