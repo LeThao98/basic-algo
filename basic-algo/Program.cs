@@ -5,28 +5,37 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check whether the sequence of numbers 1, 2, 3 appears in a given array of integers somewhere
+         Write a C# Sharp program to compare two given strings and return the number of the positions
+         where they contain the same length 2 substring.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(new[] { 1, 1, 2, 3, 1 }));
-            Console.WriteLine(test(new[] { 1, 1, 2, 4, 1 }));
-            Console.WriteLine(test(new[] { 1, 1, 2, 1, 2, 3 }));
+            Console.WriteLine(test("abcdefgh", "abijsklm"));
+            Console.WriteLine(test("abcde", "osuefrcd"));
+            Console.WriteLine(test("pqrstuvwx", "pqkdiewx"));
 
             Console.ReadKey();
         }
 
-        private static bool test(int[] a)
+        private static int test(string s1, string s2)
         {
-            for (var i = 0; i < a.Length - 2; i++)
+            int count = 0;
+            for (int i = 0; i < s1.Length - 1; i++)
             {
-                if (a[i] == 1 && a[i + 1] == 2 && a[i + 2] == 3)
-                    return true;
+                string firstString = s1.Substring(i, 2);
+                for (int j = 0; j < s2.Length - 1; j++)
+                {
+                    string secondString = s2.Substring(j, 2);
+                    if (secondString.Equals(firstString))
+                    {
+                        count++;
+                    }
+                }
             }
-            return false;
+            return count;
         }
     }
 }
