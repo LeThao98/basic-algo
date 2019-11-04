@@ -5,32 +5,25 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check if a triple is presents in an array of integers or not.
-         If a value appears three times in a row in an array it is called a triple.
+         Write a C# Sharp program to compute the sum of the two given integers.
+         If the sum is in the range 10..20 inclusive return 30.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(new[] { 1, 1, 2, 2, 1 }));
-            Console.WriteLine(test(new[] { 1, 1, 2, 1, 2, 3 }));
-            Console.WriteLine(test(new[] { 1, 1, 1, 2, 2, 2, 1 }));
+            Console.WriteLine(test(12, 17));
+            Console.WriteLine(test(2, 17));
+            Console.WriteLine(test(22, 17));
+            Console.WriteLine(test(20, 0));
 
             Console.ReadKey();
         }
 
-        private static bool test(int[] a)
+        private static int test(int a, int b)
         {
-            for (int i = 0; i < a.Length - 2; i++)
-            {
-                int x = a[i];
-                if (a[i + 1] == x && a[i + 2] == x)
-                {
-                    return true;
-                }
-            }
-            return false;
+            return a + b >= 10 && a + b <= 20 ? 30 : a + b;
         }
     }
 }
