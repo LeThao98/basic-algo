@@ -5,37 +5,29 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to compare two given strings and return the number of the positions
-         where they contain the same length 2 substring.
+         Write a C# Sharp program to create a new string from a give string where a specified character
+         have been removed except starting and ending position of the given string.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("abcdefgh", "abijsklm"));
-            Console.WriteLine(test("abcde", "osuefrcd"));
-            Console.WriteLine(test("pqrstuvwx", "pqkdiewx"));
+            Console.WriteLine(test("xxHxix", 'x'));
+            Console.WriteLine(test("abxdddca", 'a'));
+            Console.WriteLine(test("xabjbhtrb", 'b'));
 
             Console.ReadKey();
         }
 
-        private static int test(string s1, string s2)
+        private static string test(string s, char x)
         {
-            int count = 0;
-            for (int i = 0; i < s1.Length - 1; i++)
+            for (int i = s.Length - 2; i > 0; i--)
             {
-                string firstString = s1.Substring(i, 2);
-                for (int j = 0; j < s2.Length - 1; j++)
-                {
-                    string secondString = s2.Substring(j, 2);
-                    if (secondString.Equals(firstString))
-                    {
-                        count++;
-                    }
-                }
+                if (s[i].Equals(x))
+                    s = s.Remove(i, 1);
             }
-            return count;
+            return s;
         }
     }
 }
