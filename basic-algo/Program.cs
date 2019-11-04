@@ -5,24 +5,23 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to test if a given non-negative number is a multiple of 13 or it is one more than a multiple of 13.
+         Write a C# Sharp program to check if a given non-negative given number is a multiple of 3 or 7, but not both.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(13));
-            Console.WriteLine(test(14));
-            Console.WriteLine(test(27));
-            Console.WriteLine(test(41));
+            Console.WriteLine(test(3));
+            Console.WriteLine(test(7));
+            Console.WriteLine(test(21));
 
             Console.ReadKey();
         }
 
         private static bool test(int a)
         {
-            return a % 13 == 0 || a % 13 == 1;
+            return a % 3 == 0 ^ a % 7 == 0;
         }
     }
 }
