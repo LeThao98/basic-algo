@@ -5,43 +5,32 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to create a new string of the characters at indexes 0,1, 4,5, 8,9 ... from a given string.
+         Write a C# Sharp program to count the number of two 5's are next to each other in an array of integers.
+         Also count the situation where the second 5 is actually a 6.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("Python"));
-            Console.WriteLine(test("JavaScript"));
-            Console.WriteLine(test("HTML"));
+            Console.WriteLine(test(new[] { 5, 5, 2 }));
+            Console.WriteLine(test(new[] { 5, 5, 2, 5, 5 }));
+            Console.WriteLine(test(new[] { 5, 6, 2, 9 }));
 
             Console.ReadKey();
         }
 
-        private static string test(string s)
+        private static int test(int[] a)
         {
-            int i = 0;
-            string result = string.Empty;
-            while (i < s.Length)
+            int count = 0;
+            for (int i = 0; i < a.Length - 1; i++)
             {
-                if (i % 4 == 0)
+                if ((a[i] == 5 && a[i + 1] == 5) || (a[i] == 5) && a[i + 1] == 6)
                 {
-                    if (i + 1 <= s.Length)
-                    {
-                        result += s.Substring(i, 2);
-                        i += 4;
-                    }
-                    else
-                    {
-                        result += s.Substring(i, 1);
-                        i++;
-                    }
+                    count++;
                 }
-                else
-                    i++;
             }
-            return result;
+            return count;
         }
     }
 }
