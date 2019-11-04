@@ -5,25 +5,23 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to compute the sum of the two given integers.
-         If the sum is in the range 10..20 inclusive return 30.
+         Write a C# Sharp program that accept two integers and return true if either one is 5 or their sum or difference is 5.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(12, 17));
-            Console.WriteLine(test(2, 17));
-            Console.WriteLine(test(22, 17));
-            Console.WriteLine(test(20, 0));
+            Console.WriteLine(test(5, 4));
+            Console.WriteLine(test(4, 3));
+            Console.WriteLine(test(1, 4));
 
             Console.ReadKey();
         }
 
-        private static int test(int a, int b)
+        private static bool test(int a, int b)
         {
-            return a + b >= 10 && a + b <= 20 ? 30 : a + b;
+            return a == 5 || b == 5 || a + b == 5 ? true : false;
         }
     }
 }
