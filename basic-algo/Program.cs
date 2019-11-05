@@ -14,6 +14,7 @@ namespace basic_algo
         {
             Console.WriteLine(test(3));
             Console.WriteLine(test(7));
+            Console.WriteLine(test(8));
             Console.WriteLine(test(21));
 
             Console.ReadKey();
@@ -21,7 +22,7 @@ namespace basic_algo
 
         private static bool test(int a)
         {
-            return a % 3 == 0 ^ a % 7 == 0;
+            return a % 10 <= 2 || a % 10 >= 8;
         }
     }
 }
