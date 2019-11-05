@@ -5,24 +5,25 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check if a given non-negative given number is a multiple of 3 or 7, but not both.
+         Write a C# Sharp program to compute the sum of the two given integers.
+         If one of the given integer value is in the range 10..20 inclusive return 18.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(3));
-            Console.WriteLine(test(7));
-            Console.WriteLine(test(8));
-            Console.WriteLine(test(21));
+            Console.WriteLine(test(3, 7));
+            Console.WriteLine(test(10, 11));
+            Console.WriteLine(test(10, 20));
+            Console.WriteLine(test(21, 220));
 
             Console.ReadKey();
         }
 
-        private static bool test(int a)
+        private static int test(int x, int y)
         {
-            return a % 10 <= 2 || a % 10 >= 8;
+            return (x >= 10 && x <= 20) || (y >= 10 && y <= 20) ? 18 : x + y;
         }
     }
 }
