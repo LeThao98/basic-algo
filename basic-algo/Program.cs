@@ -5,7 +5,7 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check if it is possible to add two integers to get the third integer from three given integers.
+         Write a C# Sharp program to check if y is greater than x, and z is greater than y from three given integers x,y,z.
     */
 
     internal class Program
@@ -19,9 +19,9 @@ namespace basic_algo
             Console.ReadKey();
         }
 
-        private static bool test(int a, int b, int c)
+        private static bool test(int x, int y, int z)
         {
-            return a == b + c || b == a + c || c == a + b;
+            return y > x && z > y;
         }
     }
 }
