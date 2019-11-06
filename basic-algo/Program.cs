@@ -5,30 +5,25 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to compute the sum of the three given integers.
-         However, if any of the values is in the range 10..20 inclusive then that value counts as 0, except 13 to 17.
+         Write a C# Sharp program to check two given integers and return the value whichever value is nearest to 13 without going over. Return 0 if both numbers go over.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(4, 5, 7));
-            Console.WriteLine(test(7, 4, 12));
-            Console.WriteLine(test(10, 13, 12));
-            Console.WriteLine(test(17, 12, 18));
+            Console.WriteLine(test(4, 5));
+            Console.WriteLine(test(7, 12));
+            Console.WriteLine(test(10, 13));
+            Console.WriteLine(test(17, 33));
+            Console.WriteLine(test(17, 33));
 
             Console.ReadKey();
         }
 
-        public static int test(int x, int y, int z)
+        public static int test(int x, int y)
         {
-            return check_value(x) + check_value(y) + check_value(z);
-        }
-
-        private static int check_value(int x)
-        {
-            return (x < 13 && x > 9) || (x > 17 && x < 21) ? 0 : x;
+            return x > 13 && y > 13 ? 0 : ((x > 13 && y <= 13) ? y : ((y > 13 && x <= 13) ? x : (13 - x > 13 - y ? y : x)));
         }
     }
 }
