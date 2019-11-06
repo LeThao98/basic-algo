@@ -5,9 +5,8 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to find the larger from two given integers.
-         However if the two integers have the same remainder when divided by 7,then the return the smaller integer.
-         If the two integers are the same, return 0.
+         Write a C# Sharp program to check two given integers, each in the range 10..99.
+         Return true if a digit appears in both numbers, such as the 3 in 13 and 33
     */
 
     internal class Program
@@ -21,9 +20,9 @@ namespace basic_algo
             Console.ReadKey();
         }
 
-        public static int test(int x, int y)
+        public static bool test(int x, int y)
         {
-            return x == y ? 0 : (x % 7 == y % 7 ? Math.Min(x, y) : Math.Max(x, y));
+            return (x / 10 == y / 10 || x / 10 == y % 10) || (x % 10 == y / 10 || x % 10 == y % 10);
         }
     }
 }
