@@ -5,23 +5,23 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to create a new string without the first and last character of a given string of length atleast two.
+         Write a C# Sharp program to create a new string from two given string one is shorter and another is longer.
+         The format of the new string will be long string + short string + long string.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("Hello"));
-            Console.WriteLine(test("Hi"));
-            Console.WriteLine(test("Python"));
+            Console.WriteLine(test("Hello", "Hi"));
+            Console.WriteLine(test("JS", "Python"));
 
             Console.ReadKey();
         }
 
-        public static string test(string s)
+        public static string test(string s1, string s2)
         {
-            return s.Length >= 2 ? s.Substring(1, s.Length - 2) : s;
+            return s1.Length > s2.Length ? s1 + s2 + s1 : s2 + s1 + s2;
         }
     }
 }
