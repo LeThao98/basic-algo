@@ -5,8 +5,7 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to create a new string from two given string one is shorter and another is longer.
-         The format of the new string will be long string + short string + long string.
+         Write a C# Sharp program to concat two given string of length atleast 1, after removing their first character.
     */
 
     internal class Program
@@ -21,7 +20,7 @@ namespace basic_algo
 
         public static string test(string s1, string s2)
         {
-            return s1.Length > s2.Length ? s1 + s2 + s1 : s2 + s1 + s2;
+            return s1.Substring(1) + s2.Substring(1);
         }
     }
 }
