@@ -5,32 +5,28 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to compute the sum of two given non-negative integers x and y as long as the sum has the same number of digits as x.
-         If the sum has more digits than x then return x without y.
+         Write a C# Sharp program to compute the sum of three given integers. If the two values are same return the third value.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(4, 5));
-            Console.WriteLine(test(7, 4));
-            Console.WriteLine(test(10, 10));
+            Console.WriteLine(test(4, 5, 7));
+            Console.WriteLine(test(7, 4, 12));
+            Console.WriteLine(test(10, 10, 12));
+            Console.WriteLine(test(12, 12, 18));
 
             Console.ReadKey();
         }
 
-        public static int test(int x, int y)
+        public static int test(int x, int y, int z)
         {
-            int a = x + y;
-            int b = x;
-            while (a > 0 && b > 0)
-            {
-                a /= 10;
-                b /= 10;
-            }
-            return a > b ? x : x + y;
-            //return (x + y).ToString().Length > x.ToString().Length ? x : x + y;
+            if (x == y && y == z) return 0;
+            if (x == y) return z;
+            if (x == z) return y;
+            if (y == z) return x;
+            return x + y + z;
         }
     }
 }
