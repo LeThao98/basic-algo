@@ -5,8 +5,8 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to compute the sum of the three integers.
-         If one of the values is 13 then do not count it and its right towards the sum.
+         Write a C# Sharp program to compute the sum of the three given integers.
+         However, if any of the values is in the range 10..20 inclusive then that value counts as 0, except 13 to 17.
     */
 
     internal class Program
@@ -16,17 +16,19 @@ namespace basic_algo
             Console.WriteLine(test(4, 5, 7));
             Console.WriteLine(test(7, 4, 12));
             Console.WriteLine(test(10, 13, 12));
-            Console.WriteLine(test(13, 12, 18));
+            Console.WriteLine(test(17, 12, 18));
 
             Console.ReadKey();
         }
 
         public static int test(int x, int y, int z)
         {
-            if (x == 13) return 0;
-            if (y == 13) return x;
-            if (z == 13) return x + y;
-            return x + y + z;
+            return check_value(x) + check_value(y) + check_value(z);
+        }
+
+        private static int check_value(int x)
+        {
+            return (x < 13 && x > 9) || (x > 17 && x < 21) ? 0 : x;
         }
     }
 }
