@@ -5,7 +5,7 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check if two or more non-negative given integers have the same rightmost digit.
+         Write a C# Sharp program to check three given integers and return true if one of them is 20 or more less than one of the others.
     */
 
     internal class Program
@@ -14,14 +14,15 @@ namespace basic_algo
         {
             Console.WriteLine(test(11, 21, 31));
             Console.WriteLine(test(11, 22, 31));
-            Console.WriteLine(test(11, 22, 33));
+            Console.WriteLine(test(10, 20, 15));
 
             Console.ReadKey();
         }
 
         public static bool test(int x, int y, int z)
         {
-            return x % 10 == y % 10 || x % 10 == z % 10 || z % 10 == y % 10;
+            return Math.Abs(x - y) >= 20 || Math.Abs(x - z) >= 20 ||
+                   Math.Abs(y - z) >= 20;
         }
     }
 }
