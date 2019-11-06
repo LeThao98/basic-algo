@@ -5,7 +5,7 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to create a new string using the two middle characters of a given string of even length (at least 2).
+        Write a C# Sharp program to check if a given string ends with "on".
     */
 
     internal class Program
@@ -13,15 +13,18 @@ namespace basic_algo
         private static void Main(string[] args)
         {
             Console.WriteLine(test("Hello"));
-            Console.WriteLine(test("JS"));
-            Console.WriteLine(test(""));
+            Console.WriteLine(test("Python"));
+            Console.WriteLine(test("on"));
+            Console.WriteLine(test("o"));
 
             Console.ReadKey();
         }
 
-        public static string test(string s)
+        public static bool test(string s)
         {
-            return s.Length >= 2 ? s.Substring((s.Length / 2) - 1, 2) : string.Empty;
+            if (s.Length >= 2) return s.Substring(s.Length - 2) == "on";
+            return false;
+            //return s1.EndsWith("on");
         }
     }
 }
