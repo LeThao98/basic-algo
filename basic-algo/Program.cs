@@ -5,7 +5,7 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to move the last two characters to the start of a given string of length at least two.
+         Write a C# Sharp program to create a new string without the first and last character of a given string of any length.
     */
 
     internal class Program
@@ -14,13 +14,14 @@ namespace basic_algo
         {
             Console.WriteLine(test("Hello"));
             Console.WriteLine(test("JS"));
+            Console.WriteLine(test(""));
 
             Console.ReadKey();
         }
 
         public static string test(string s)
         {
-            return s.Length >= 2 ? s.Substring(s.Length - 2) + s.Substring(0, s.Length - 2) : s;
+            return s.Length >= 2 ? s.Substring(1, s.Length - 2) : string.Empty;
         }
     }
 }
