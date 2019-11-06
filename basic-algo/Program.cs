@@ -5,24 +5,25 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to check three given integers and return true if one of them is 20 or more less than one of the others.
+         Write a C# Sharp program to find the larger from two given integers.
+         However if the two integers have the same remainder when divided by 7,then the return the smaller integer.
+         If the two integers are the same, return 0.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(11, 21, 31));
-            Console.WriteLine(test(11, 22, 31));
-            Console.WriteLine(test(10, 20, 15));
+            Console.WriteLine(test(11, 21));
+            Console.WriteLine(test(11, 20));
+            Console.WriteLine(test(10, 10));
 
             Console.ReadKey();
         }
 
-        public static bool test(int x, int y, int z)
+        public static int test(int x, int y)
         {
-            return Math.Abs(x - y) >= 20 || Math.Abs(x - z) >= 20 ||
-                   Math.Abs(y - z) >= 20;
+            return x == y ? 0 : (x % 7 == y % 7 ? Math.Min(x, y) : Math.Max(x, y));
         }
     }
 }
