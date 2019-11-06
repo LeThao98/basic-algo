@@ -5,21 +5,21 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to insert a given string into middle of the another given string of length 4.
+         Write a C# Sharp program to create a new string using three copies of the last two character of a given string of length atleast two.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("[[]]", "Hello"));
-            Console.WriteLine(test("(())", "Hi"));
+            Console.WriteLine(test("Hello"));
+            Console.WriteLine(test("Hi"));
             Console.ReadKey();
         }
 
-        public static string test(string s1, string s2)
+        public static string test(string s)
         {
-            return s1.Length == 4 ? s1.Substring(0, 2) + s2 + s1.Substring(2) : string.Empty;
+            return s.Length >= 2 ? s.Substring(s.Length - 2) + s.Substring(s.Length - 2) + s.Substring(s.Length - 2) : s + s + s;
         }
     }
 }
