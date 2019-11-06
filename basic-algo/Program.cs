@@ -5,8 +5,7 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to create a new string using first two characters of a given string.
-         If the string length is less than 2 then return the original string.
+         Write a C# Sharp program to create a new string of the first half of a given string of even length.
     */
 
     internal class Program
@@ -15,14 +14,12 @@ namespace basic_algo
         {
             Console.WriteLine(test("Hello"));
             Console.WriteLine(test("Hi"));
-            Console.WriteLine(test("H"));
-            Console.WriteLine(test(" "));
             Console.ReadKey();
         }
 
         public static string test(string s)
         {
-            return s.Length >= 2 ? s.Substring(0, 2) : s;
+            return s.Length % 2 == 0 ? s.Substring(0, s.Length / 2) : s.Substring(0, (s.Length - 1) / 2);
         }
     }
 }
