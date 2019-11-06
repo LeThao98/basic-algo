@@ -5,7 +5,7 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-         Write a C# Sharp program to move the first two characters to the end of a given string of length at least two.
+         Write a C# Sharp program to move the last two characters to the start of a given string of length at least two.
     */
 
     internal class Program
@@ -20,7 +20,7 @@ namespace basic_algo
 
         public static string test(string s)
         {
-            return s.Length >= 2 ? s.Substring(2) + s.Substring(0, 2) : s;
+            return s.Length >= 2 ? s.Substring(s.Length - 2) + s.Substring(0, s.Length - 2) : s;
         }
     }
 }
