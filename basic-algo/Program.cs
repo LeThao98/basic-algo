@@ -5,26 +5,24 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to check if a given string ends with "on".
+        Write a C# Sharp program to create a new string using the first and last n characters from a given string of length at least n.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("Hello"));
-            Console.WriteLine(test("Python"));
-            Console.WriteLine(test("on"));
-            Console.WriteLine(test("o"));
+            Console.WriteLine(test("Hello", 1));
+            Console.WriteLine(test("Python", 2));
+            Console.WriteLine(test("on", 1));
+            Console.WriteLine(test("o", 1));
 
             Console.ReadKey();
         }
 
-        public static bool test(string s)
+        public static string test(string s, int n)
         {
-            if (s.Length >= 2) return s.Substring(s.Length - 2) == "on";
-            return false;
-            //return s1.EndsWith("on");
+            return s.Length >= n ? s.Substring(0, n) + s.Substring(s.Length - n) : string.Empty;
         }
     }
 }
