@@ -5,8 +5,8 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to check a given array of integers of length 1 or more and
-       return true if 10 appears as either first or last element in the given array.
+       Write a C# Sharp program to check a given array of integers of length 1 or more and return true
+       if the first element and the last element are equal in the given array.
     */
 
     internal class Program
@@ -14,7 +14,6 @@ namespace basic_algo
         private static void Main(string[] args)
         {
             Console.WriteLine(test(new[] { 10, 20, 40, 50 }));
-            Console.WriteLine(test(new[] { 5, 20, 40, 10 }));
             Console.WriteLine(test(new[] { 10, 20, 40, 10 }));
             Console.WriteLine(test(new[] { 12, 24, 35, 55 }));
 
@@ -23,7 +22,7 @@ namespace basic_algo
 
         public static bool test(int[] nums)
         {
-            return nums[0] == 10 || nums[nums.Length - 1] == 10;
+            return nums.Length > 0 && nums[0] == nums[nums.Length - 1];
         }
     }
 }
