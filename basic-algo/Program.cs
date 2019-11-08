@@ -5,33 +5,25 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to concate two given strings. If there are any double character in new string then omit one character.
+       Write a C# Sharp program to create a new string from a given string after swapping last two characters.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("abc", "cat"));
-            Console.WriteLine(test("python", "php"));
-            Console.WriteLine(test("php", "php"));
+            Console.WriteLine(test("Hello"));
+            Console.WriteLine(test("Python"));
+            Console.WriteLine(test("PHP"));
+            Console.WriteLine(test("JS"));
+            Console.WriteLine(test("C"));
 
             Console.ReadKey();
         }
 
-        public static string test(string s1, string s2)
+        public static string test(string s)
         {
-            if (s1.Length < 1)
-            {
-                return s2;
-            }
-
-            if (s2.Length < 1)
-            {
-                return s1;
-            }
-
-            return !s1.EndsWith(s2.Substring(0, 1)) ? s1 + s2 : s1 + s2.Substring(1);
+            return s.Length >= 2 ? s.Substring(0, s.Length - 2) + s.Substring(s.Length - 1) + s.Substring(s.Length - 2, 1) : string.Empty;
         }
     }
 }
