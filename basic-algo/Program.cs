@@ -5,28 +5,33 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to create a new array taking the first two elements from a given array.
-        If the length of the given array is less than 2 then return the give array.
+        Write a C# Sharp program to compute the difference between the largest and
+        smallest values in a gvien array of integers and length one or more.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
+            Console.WriteLine("Difference between the largest and smallest values: ");
             Console.WriteLine(test(new[] { 1, 5, 7, 9, 10, 12 }));
 
             Console.ReadKey();
         }
 
-        public static int test(int[] numbers)
+        public static int test(int[] nums)
         {
-            int evens = 0;
+            int small_num = 0, biggest_num = 0;
 
-            for (int i = 0; i < numbers.Length; i++)
+            if (nums.Length > 0) small_num = biggest_num = nums[0];
+
+            for (int i = 1; i < nums.Length; i++)
             {
-                if (numbers[i] % 2 == 0) evens++;
+                small_num = Math.Min(small_num, nums[i]);
+                biggest_num = Math.Max(biggest_num, nums[i]);
             }
-            return evens;
+
+            return biggest_num - small_num;
         }
     }
 }
