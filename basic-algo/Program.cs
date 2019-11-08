@@ -5,24 +5,24 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to create a new string using 3 copies of the first 2 characters of a given string.
-       If the length of the given string is less than 2 use the whole string.
+       Write a C# Sharp program to create a new string from a given string.
+       If the two characters of the given string from its beginning and end
+       are same return the given string without the first two characters otherwise return the original string.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("abc"));
+            Console.WriteLine(test("abcab"));
             Console.WriteLine(test("Python"));
-            Console.WriteLine(test("J"));
 
             Console.ReadKey();
         }
 
         public static string test(string s)
         {
-            return s.Length >= 2 ? s.Substring(0, 2) + s.Substring(0, 2) + s.Substring(0, 2) : s + s + s;
+            return s.Substring(0, 2) == s.Substring(s.Length - 2) ? s.Remove(0, 2) : s;
         }
     }
 }
