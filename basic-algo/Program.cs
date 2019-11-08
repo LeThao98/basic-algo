@@ -5,15 +5,14 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to find out the maximum element between the first or last element in a given array of integers (length 4),
-       replace all elements with maximum element.
+       Write a C# Sharp program to create a new array containing the middle elements from the two given arrays of integers, each length 5.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            int[] item = test(new[] { 10, 20, -30, -40 });
+            int[] item = test(new[] { 10, 20, -30, -40, 30 }, new[] { 10, 20, 30, 40, 30 });
 
             Console.Write("New array: ");
 
@@ -25,11 +24,9 @@ namespace basic_algo
             Console.ReadKey();
         }
 
-        public static int[] test(int[] nums)
+        public static int[] test(int[] nums1, int[] nums2)
         {
-            int max = nums.Max();
-
-            return new int[] { max, max, max, max };
+            return new int[] { nums1[2], nums2[2] };
         }
     }
 }
