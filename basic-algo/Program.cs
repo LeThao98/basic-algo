@@ -5,16 +5,15 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to check a given array of integers, length 3 and create a new array.
-       If there is a 5 in the given array immediately followed by a 7 then set 7 to 1.
+      Write a C# Sharp program to compute the sum of the two given arrays of integers, length 3 and find the array which has the largest sum.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            int[] item = test(new[] { 1, 5, 7 });
-            Console.Write("New array: ");
+            int[] item = test(new[] { 10, 20, -30 }, new[] { 10, 20, 30 });
+            Console.Write("Larger array: ");
             foreach (var i in item)
             {
                 Console.Write(i.ToString() + " ");
@@ -23,14 +22,9 @@ namespace basic_algo
             Console.ReadKey();
         }
 
-        public static int[] test(int[] numbers)
+        public static int[] test(int[] nums1, int[] nums2)
         {
-            for (var i = 0; i < numbers.Length - 1; i++)
-            {
-                if (numbers[i].Equals(5) && numbers[i + 1].Equals(7))
-                    numbers[i + 1] = 1;
-            }
-            return numbers;
+            return nums1[0] + nums1[1] + nums1[2] >= nums2[0] + nums2[1] + nums2[2] ? nums1 : nums2;
         }
     }
 }
