@@ -12,16 +12,24 @@ namespace basic_algo
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("abab"));
-            Console.WriteLine(test("abcdef"));
-            Console.WriteLine(test("xyzsderxy"));
+            Console.WriteLine(test("abc", "abcd"));
+            Console.WriteLine(test("Python", "Python"));
+            Console.WriteLine(test("JS", "Python"));
 
             Console.ReadKey();
         }
 
-        public static bool test(string s)
+        public static string test(string s1, string s2)
         {
-            return s.Substring(0, 2) == s.Substring(s.Length - 2);
+            if (s1.Length > s2.Length)
+            {
+                return s1.Substring(0, s2.Length) + s2;
+            }
+            if (s2.Length > s1.Length)
+            {
+                return s1 + s2.Remove(0, s2.Length - s1.Length);
+            }
+            return s1 + s2;
         }
     }
 }
