@@ -5,18 +5,14 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to rotate the elements of a given array of integers (length 4) in left direction and return the new array.
-        Test Data: 90, 30, 50, 40
-        Sample Output: Rotated array: 30 50 40 90
-        Test Data: -40, 10, -20, -10
-        Sample Output: Rotated array: 10 -20 -10 -40
+       Write a C# Sharp program to reverse a given array of integers and length 5.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            int[] item = test(new[] { 10, 20, -30, -40 });
+            int[] item = test(new[] { 10, 20, -30, -40, 50 });
 
             Console.Write("Rotated array: ");
 
@@ -28,9 +24,9 @@ namespace basic_algo
             Console.ReadKey();
         }
 
-        public static int[] test(int[] a1)
+        public static int[] test(int[] nums)
         {
-            return new int[] { a1[1], a1[2], a1[3], a1[0] };
+            return new int[] { nums[4], nums[3], nums[2], nums[1], nums[0] };
         }
     }
 }
