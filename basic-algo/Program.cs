@@ -5,24 +5,24 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to check a given array of integers of length 1 or more and return true
-       if the first element and the last element are equal in the given array.
+       Write a C# Sharp program to check two given arrays of integers of length 1 or more and return true if they have the same
+       first element or they have the same last element.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(new[] { 10, 20, 40, 50 }));
-            Console.WriteLine(test(new[] { 10, 20, 40, 10 }));
-            Console.WriteLine(test(new[] { 12, 24, 35, 55 }));
+            Console.WriteLine(test(new[] { 10, 20, 40, 50 }, new[] { 10, 20, 40, 50 }));
+            Console.WriteLine(test(new[] { 10, 20, 40, 50 }, new[] { 10, 20, 40, 5 }));
+            Console.WriteLine(test(new[] { 10, 20, 40, 50 }, new[] { 1, 20, 40, 5 }));
 
             Console.ReadKey();
         }
 
-        public static bool test(int[] nums)
+        public static bool test(int[] a1, int[] a2)
         {
-            return nums.Length > 0 && nums[0] == nums[nums.Length - 1];
+            return a1[0] == a2[0] || a1[a1.Length - 1] == a2[a2.Length - 1];
         }
     }
 }
