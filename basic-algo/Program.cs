@@ -5,25 +5,34 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to create a new string from a given string after swapping last two characters.
+       Write a C# Sharp program to check if a given string begins with "abc" or "xyz".
+       If the string begins with "abc" or "xyz" return "abc" or "xyz" otherwise return the empty string
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("Hello"));
-            Console.WriteLine(test("Python"));
-            Console.WriteLine(test("PHP"));
-            Console.WriteLine(test("JS"));
+            Console.WriteLine(test("abc"));
+            Console.WriteLine(test("abcdef"));
             Console.WriteLine(test("C"));
+            Console.WriteLine(test("xyz"));
+            Console.WriteLine(test("xyzsder"));
 
             Console.ReadKey();
         }
 
         public static string test(string s)
         {
-            return s.Length >= 2 ? s.Substring(0, s.Length - 2) + s.Substring(s.Length - 1) + s.Substring(s.Length - 2, 1) : string.Empty;
+            if (s.StartsWith("abc"))
+            {
+                return "abc";
+            }
+            if (s.StartsWith("xyz"))
+            {
+                return "xyz";
+            }
+            return string.Empty;
         }
     }
 }
