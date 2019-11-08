@@ -5,15 +5,16 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-      Write a C# Sharp program to create a new array from two give array of integers, each length 3.
+      Write a C# Sharp program to create a new array swapping the first and last elements of a given array of
+      integers and length will be least 1.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            int[] item = test(new[] { 10, 20, 30 }, new[] { 40, 50, 60 });
-            Console.Write("New array: ");
+            int[] item = test(new[] { 1, 5, 7, 9, 11, 13 });
+            Console.Write("After swapping first and last elements: ");
             foreach (var i in item)
             {
                 Console.Write(i.ToString() + " ");
@@ -22,9 +23,13 @@ namespace basic_algo
             Console.ReadKey();
         }
 
-        public static int[] test(int[] nums1, int[] nums2)
+        public static int[] test(int[] numbers)
         {
-            return new int[] { nums1[0], nums1[1], nums1[2], nums2[0], nums2[1], nums2[2] };
+            int first = numbers[0];
+            numbers[0] = numbers[numbers.Length - 1];
+            numbers[numbers.Length - 1] = first;
+
+            return numbers;
         }
     }
 }
