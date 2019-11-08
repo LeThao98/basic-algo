@@ -5,8 +5,8 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-      Write a C# Sharp program to create a new array swapping the first and last elements of a given array of
-      integers and length will be least 1.
+      Write a C# Sharp program to create a new array of length 3 from a given array (length atleast 3)
+      using the elements from the middle of the array.
     */
 
     internal class Program
@@ -14,7 +14,7 @@ namespace basic_algo
         private static void Main(string[] args)
         {
             int[] item = test(new[] { 1, 5, 7, 9, 11, 13 });
-            Console.Write("After swapping first and last elements: ");
+            Console.Write("New array: ");
             foreach (var i in item)
             {
                 Console.Write(i.ToString() + " ");
@@ -25,11 +25,7 @@ namespace basic_algo
 
         public static int[] test(int[] numbers)
         {
-            int first = numbers[0];
-            numbers[0] = numbers[numbers.Length - 1];
-            numbers[numbers.Length - 1] = first;
-
-            return numbers;
+            return new int[] { numbers[numbers.Length / 2 - 1], numbers[numbers.Length / 2], numbers[numbers.Length / 2 + 1] };
         }
     }
 }
