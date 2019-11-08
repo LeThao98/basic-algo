@@ -5,34 +5,23 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to check if a given string begins with "abc" or "xyz".
-       If the string begins with "abc" or "xyz" return "abc" or "xyz" otherwise return the empty string
+       Write a C# Sharp program to check whether the first two characters and last two characters of a given string are same.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("abc"));
+            Console.WriteLine(test("abab"));
             Console.WriteLine(test("abcdef"));
-            Console.WriteLine(test("C"));
-            Console.WriteLine(test("xyz"));
-            Console.WriteLine(test("xyzsder"));
+            Console.WriteLine(test("xyzsderxy"));
 
             Console.ReadKey();
         }
 
-        public static string test(string s)
+        public static bool test(string s)
         {
-            if (s.StartsWith("abc"))
-            {
-                return "abc";
-            }
-            if (s.StartsWith("xyz"))
-            {
-                return "xyz";
-            }
-            return string.Empty;
+            return s.Substring(0, 2) == s.Substring(s.Length - 2);
         }
     }
 }
