@@ -5,9 +5,8 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to create a new string from a given string.
-       If the two characters of the given string from its beginning and end
-       are same return the given string without the first two characters otherwise return the original string.
+       Write a C# Sharp program to create a new string from a given string without the first two characters.
+       Keep the first character if it is "p" and keep the second character if it is "y".
     */
 
     internal class Program
@@ -15,14 +14,19 @@ namespace basic_algo
         private static void Main(string[] args)
         {
             Console.WriteLine(test("abcab"));
-            Console.WriteLine(test("Python"));
+            Console.WriteLine(test("python"));
+            Console.WriteLine(test("press"));
+            Console.WriteLine(test("jython"));
 
             Console.ReadKey();
         }
 
         public static string test(string s)
         {
-            return s.Substring(0, 2) == s.Substring(s.Length - 2) ? s.Remove(0, 2) : s;
+            if (s.Substring(0, 1) == "p" && s.Substring(1, 1) == "y") return s;
+            if (s.Substring(0, 1) == "p") return "p" + s.Remove(0, 2);
+            if (s.Substring(1, 1) == "y") return s.Remove(0, 1);
+            return s.Remove(0, 2);
         }
     }
 }
