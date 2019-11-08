@@ -5,43 +5,25 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to create a new string from a given string.
-       If the first or first two characters is 'a', return the string without those 'a' characters otherwise return the original given string.
+       Write a C# Sharp program to check a given array of integers of length 1 or more and
+       return true if 10 appears as either first or last element in the given array.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test("abcab"));
-            Console.WriteLine(test("python"));
-            Console.WriteLine(test("aacda"));
-            Console.WriteLine(test("jython"));
+            Console.WriteLine(test(new[] { 10, 20, 40, 50 }));
+            Console.WriteLine(test(new[] { 5, 20, 40, 10 }));
+            Console.WriteLine(test(new[] { 10, 20, 40, 10 }));
+            Console.WriteLine(test(new[] { 12, 24, 35, 55 }));
 
             Console.ReadKey();
         }
 
-        public static string test(string s)
+        public static bool test(int[] nums)
         {
-            if (s.Length == 1 && s.Substring(0, 1) == "a")
-            {
-                s = s.Remove(0, 1);
-            }
-
-            if (s.Length > 1)
-            {
-                if (s.Substring(1, 1) == "a")
-                {
-                    s = s.Remove(1, 1);
-                }
-
-                if (s.Substring(0, 1) == "a")
-                {
-                    s = s.Remove(0, 1);
-                }
-            }
-
-            return s;
+            return nums[0] == 10 || nums[nums.Length - 1] == 10;
         }
     }
 }
