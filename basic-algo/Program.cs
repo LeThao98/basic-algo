@@ -5,15 +5,14 @@ using System.Collections.Generic;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to create a new array using the first n strings from a given array of strings.
-        (n>=1 and <=length of the array)
+        Write a C# Sharp program to create a new array from a given array of strings using all the strings whose length are matched with given string length.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            string[] item = test(new[] { "a", "b", "bb", "c", "ccc" }, 3);
+            IEnumerable<string> item = test(new[] { "a", "aaa", "b", "bbb", "c", "ccc" }, 3);
             Console.Write("New array: ");
             foreach (var i in item)
             {
@@ -22,16 +21,15 @@ namespace basic_algo
             Console.ReadKey();
         }
 
-        public static string[] test(string[] arr_str, int n)
+        public static IEnumerable<string> test(string[] arr_str, int n)
         {
-            string[] new_array = new string[n];
-
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < arr_str.Length; i++)
             {
-                new_array[i] = arr_str[i];
+                if (arr_str[i].Length == n)
+                {
+                    yield return arr_str[i];
+                }
             }
-
-            return new_array;
         }
     }
 }
