@@ -5,28 +5,32 @@ using System.Collections.Generic;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to check a given array (length will be atleast 2) of integers and return true
-        if there are two values 15, 15 next to each other.
+        Write a C# Sharp program to find the larger average value between the first and the second half of a given array of integers and minimum length is atleast 2.
+        Assume that the second half begins at index (array length)/2.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(new[] { 5, 5, 1, 15, 15 }));
-            Console.WriteLine(test(new[] { 15, 2, 3, 4, 15 }));
-            Console.WriteLine(test(new[] { 3, 3, 15, 15, 5, 5 }));
-            Console.WriteLine(test(new[] { 1, 5, 15, 7, 8, 15 }));
+            Console.WriteLine(test(new[] { 1, 2, 3, 4, 6, 8 }));
+            Console.WriteLine(test(new[] { 15, 2, 3, 4, 15, 11 }));
             Console.ReadKey();
         }
 
-        public static bool test(int[] numbers)
+        public static int test(int[] numbers)
         {
-            for (int i = 0; i < numbers.Length - 1; i++)
-            {
-                if (numbers[i + 1] == numbers[i] && numbers[i] == 15) return true;
-            }
-            return false;
+            var firstHalf = Average(numbers, 0, numbers.Length / 2);
+            var secondHalf = Average(numbers, numbers.Length / 2, numbers.Length);
+            return firstHalf > secondHalf ? firstHalf : secondHalf;
+        }
+
+        private static int Average(int[] num, int start, int end)
+        {
+            var sum = 0;
+            for (var i = start; i < end; i++)
+                sum += num[i];
+            return sum / (num.Length / 2);
         }
     }
 }
