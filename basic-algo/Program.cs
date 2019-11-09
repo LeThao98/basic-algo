@@ -5,30 +5,27 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to compute the sum of the numbers in a given array except those numbers starting with 5
-        followed by atleast one 6. Return 0 if the given array has no integer.
+        Write a C# Sharp program to check if a given array of integers contains 5 next to a 5 somewhere.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Sum of the numbers of the said array except those numbers starting with 5 followed by atleast one 6: ");
             Console.WriteLine(test(new[] { 1, 5, 6, 9, 10, 17 }));
+            Console.WriteLine(test(new[] { 1, 5, 5, 9, 10, 17 }));
+            Console.WriteLine(test(new[] { 1, 5, 5, 9, 10, 17, 5, 5 }));
             Console.ReadKey();
         }
 
-        public static int test(int[] nums)
+        public static bool test(int[] nums)
         {
-            int sum = 0;
-            bool inSection = false;
-            for (int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length - 1; i++)
             {
-                if (nums[i] == 5) inSection = true;
-                else if (inSection && nums[i] == 6) inSection = false;
-                else if (!inSection) sum += nums[i];
+                if (nums[i] == 5 && nums[i] == nums[i + 1]) return true;
             }
-            return sum;
+
+            return false;
         }
     }
 }
