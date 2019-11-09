@@ -5,7 +5,8 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to check a given array of integers and return true if the given array contains two 5's next to each other, or two 5 separated by one element.
+        Write a C# Sharp program to check a given array of integers and return true if the given array contains either 2 even or 2 odd
+        values all next to each other.
     */
 
     internal class Program
@@ -21,12 +22,31 @@ namespace basic_algo
 
         public static bool test(int[] numbers)
         {
-            bool three = false;
+            //int tot_odd = 0, tot_even = 0;
 
-            for (int i = 0; i < numbers.Length; i++)
+            //for (int i = 0; i < numbers.Length; i++)
+            //{
+            //    if (tot_odd < 2 && tot_even < 2)
+            //    {
+            //        if (numbers[i] % 2 == 0)
+            //        {
+            //            tot_even++;
+            //            tot_odd = 0;
+            //        }
+            //        else
+            //        {
+            //            tot_odd++;
+            //            tot_even = 0;
+            //        }
+            //    }
+            //}
+            //return tot_odd == 2 || tot_even == 2;
+            for (int i = 0; i < numbers.Length - 1; i++)
             {
-                if (three && numbers[i] == 5) return true;
-                if (numbers[i] == 3) three = true;
+                if (numbers[i] % 2 == 0 && numbers[i + 1] % 2 == 0)
+                    return true;
+                if (numbers[i] % 2 != 0 && numbers[i + 1] % 2 != 0)
+                    return true;
             }
             return false;
         }
