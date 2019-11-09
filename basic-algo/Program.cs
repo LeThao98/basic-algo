@@ -12,24 +12,20 @@ namespace basic_algo
     {
         private static void Main(string[] args)
         {
-            IEnumerable<string> item = test(new[] { "a", "aaa", "b", "bbb", "c", "ccc" }, 3);
-            Console.Write("New array: ");
-            foreach (var i in item)
-            {
-                Console.Write(i.ToString() + " ");
-            }
+            Console.WriteLine(test(123));
+            Console.WriteLine(test(13));
+            Console.WriteLine(test(222));
             Console.ReadKey();
         }
 
-        public static IEnumerable<string> test(string[] arr_str, int n)
+        public static bool test(int n)
         {
-            for (int i = 0; i < arr_str.Length; i++)
+            while (n > 0)
             {
-                if (arr_str[i].Length == n)
-                {
-                    yield return arr_str[i];
-                }
+                if (n % 10 == 2) return true;
+                n /= 10;
             }
+            return false;
         }
     }
 }
