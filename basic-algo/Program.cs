@@ -5,14 +5,14 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to create a new array taking the elements before the element value 5 from a given array of integers.
+        Write a C# Sharp program to create a new array taking the elements after the element value 5 from a given array of integers.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            int[] item = test(new[] { 1, 2, 3, 5, 7 });
+            int[] item = test(new[] { 1, 2, 3, 5, 7, 9, 11 });
             Console.Write("New array: ");
             foreach (var i in item)
             {
@@ -23,23 +23,21 @@ namespace basic_algo
 
         public static int[] test(int[] numbers)
         {
-            int size = 0;
-            int[] pre_ele_5;
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                if (numbers[i] == 5)
-                {
-                    size = i;
-                    break;
-                }
-            }
-            pre_ele_5 = new int[size];
+            int len = numbers.Length, size = 0, i = len - 1;
+            int[] post_ele_5;
+
+            while (i >= 0 && numbers[i] != 5) i--;
+            i++;
+
+            size = len - i;
+            post_ele_5 = new int[size];
 
             for (int j = 0; j < size; j++)
             {
-                pre_ele_5[j] = numbers[j];
+                post_ele_5[j] = numbers[i + j];
             }
-            return pre_ele_5;
+
+            return post_ele_5;
         }
     }
 }
