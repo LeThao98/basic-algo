@@ -5,30 +5,32 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to check a given array of integers and return true if the array contains three increasing adjacent numbers.
+        Write a C# Sharp program to shift an element in left direction and return a new array.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(new[] { 1, 2, 3, 5, 3, 7 }));
-            Console.WriteLine(test(new[] { 3, 7, 5, 5, 3, 7 }));
-            Console.WriteLine(test(new[] { 3, 7, 5, 5, 6, 7, 5 }));
+            int[] item = test(new[] { 10, 20, -30, -40, 50 });
+            Console.Write("New array: ");
+            foreach (var i in item)
+            {
+                Console.Write(i.ToString() + " ");
+            }
             Console.ReadKey();
         }
 
-        public static bool test(int[] numbers)
+        public static int[] test(int[] numbers)
         {
-            for (int i = 0; i <= numbers.Length - 3; i++)
+            int size = numbers.Length;
+            int[] shiftNums = new int[size];
+
+            for (int i = 0; i < size; i++)
             {
-                if (numbers[i] == numbers[i + 1] - 1
-                    && numbers[i] == numbers[i + 2] - 2)
-                {
-                    return true;
-                }
+                shiftNums[i] = numbers[(i + 1) % size];
             }
-            return false;
+            return shiftNums;
         }
     }
 }
