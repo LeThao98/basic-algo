@@ -5,27 +5,33 @@ using System.Collections.Generic;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to count the number of strings with given length in given array of strings.
+        Write a C# Sharp program to create a new array using the first n strings from a given array of strings.
+        (n>=1 and <=length of the array)
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Number of array: ");
-            Console.WriteLine(test(new[] { "a", "b", "bb", "c", "ccc" }, 1));
+            string[] item = test(new[] { "a", "b", "bb", "c", "ccc" }, 3);
+            Console.Write("New array: ");
+            foreach (var i in item)
+            {
+                Console.Write(i.ToString() + " ");
+            }
             Console.ReadKey();
         }
 
-        public static int test(string[] arr_str, int len)
+        public static string[] test(string[] arr_str, int n)
         {
-            int ctr = 0;
+            string[] new_array = new string[n];
 
-            for (int i = 0; i < arr_str.Length; i++)
+            for (int i = 0; i < n; i++)
             {
-                if (arr_str[i].Length == len) ctr++;
+                new_array[i] = arr_str[i];
             }
-            return ctr;
+
+            return new_array;
         }
     }
 }
