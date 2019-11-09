@@ -12,23 +12,23 @@ namespace basic_algo
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(new[] { 1, 5, 6, 9, 10, 17 }));
+            Console.WriteLine(test(new[] { 1, 5, 6, 9, 3, 3 }));
             Console.WriteLine(test(new[] { 1, 5, 5, 5, 10, 17 }));
-            Console.WriteLine(test(new[] { 1, 1, 5, 5, 5, 5 }));
+            Console.WriteLine(test(new[] { 1, 3, 3, 5, 5, 5 }));
             Console.ReadKey();
         }
 
         public static bool test(int[] nums)
         {
-            int sum = 0;
+            int no_3 = 0, no_5 = 0;
 
             for (int i = 0; i < nums.Length; i++)
             {
-                if (nums[i] == 5)
-                    sum += 5;
+                if (nums[i] == 3) no_3++;
+                if (nums[i] == 5) no_5++;
             }
 
-            return sum == 15;
+            return no_3 > no_5;
         }
     }
 }
