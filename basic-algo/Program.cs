@@ -5,33 +5,30 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to check a given array of integers and return true if the specified number of same elements
-        appears at the start and end of the given array.
+        Write a C# Sharp program to check a given array of integers and return true if the array contains three increasing adjacent numbers.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine(test(new[] { 3, 7, 5, 5, 3, 7 }, 2));
-            Console.WriteLine(test(new[] { 3, 7, 5, 5, 3, 7 }, 3));
-            Console.WriteLine(test(new[] { 3, 7, 5, 5, 3, 7, 5 }, 3));
+            Console.WriteLine(test(new[] { 1, 2, 3, 5, 3, 7 }));
+            Console.WriteLine(test(new[] { 3, 7, 5, 5, 3, 7 }));
+            Console.WriteLine(test(new[] { 3, 7, 5, 5, 6, 7, 5 }));
             Console.ReadKey();
         }
 
-        public static bool test(int[] numbers, int len)
+        public static bool test(int[] numbers)
         {
-            int arra_size = numbers.Length;
-
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i <= numbers.Length - 3; i++)
             {
-                if (numbers[i] != numbers[arra_size - len + i])
+                if (numbers[i] == numbers[i + 1] - 1
+                    && numbers[i] == numbers[i + 2] - 2)
                 {
-                    return false;
+                    return true;
                 }
             }
-
-            return true;
+            return false;
         }
     }
 }
