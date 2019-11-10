@@ -6,14 +6,14 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-       Write a C# Sharp program to remove all "a" in each string in given list of strings and return the new string.
+       Write a C# Sharp program to create a new list from a given list of integers removing those values which are less than 4.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            List<string> mylist = test(new List<string>(new string[] { "abc", "cdaef", "js", "php" }));
+            List<int> mylist = test(new List<int>(new int[] { 0, -2, 1, 2, 3, 5, 4, 7, 8 }));
             foreach (var i in mylist)
             {
                 Console.Write(i.ToString() + " ");
@@ -21,9 +21,9 @@ namespace basic_algo
             Console.ReadKey();
         }
 
-        public static List<string> test(List<string> str)
+        public static List<int> test(List<int> nums)
         {
-            return str.Select(x => x.Replace("a", "")).ToList();
+            return nums.Where(n => n < 4).ToList();
         }
     }
 }
