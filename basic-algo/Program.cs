@@ -8,27 +8,29 @@ namespace basic_algo
 {
     /*
      * data_types
-        Write a C# Sharp program that takes two numbers as input and returns true or false when both numbers are even or odd.
+        Write a C# Sharp program that takes a decimal number as input and displays its equivalent in binary form.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int n1, n2;
-            bool bothEven;
-            Console.Write("Input First number: ");
-            n1 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Input Second number: ");
-            n2 = Convert.ToInt32(Console.ReadLine());
+            string answer;
+            string result;
 
-            //bothEven = ((n1%2!=0) || (n1%2!=0))? false:true;
-            bothEven = ((n1 % 2 == 0)
-                && (n2 % 2 == 0)) ? true : false;
+            Console.Write("Input a Number : ");
+            answer = Console.ReadLine();
 
-            Console.WriteLine(bothEven ?
-              "there're numbers bothEven" :
-              "there's a number odd");
+            int num = Convert.ToInt32(answer);
+            result = "";
+            while (num > 1)
+            {
+                int remainder = num % 2;
+                result = Convert.ToString(remainder) + result;
+                num /= 2;
+            }
+            result = Convert.ToString(num) + result;
+            Console.WriteLine("Binary: {0}", result);
             Console.ReadKey();
         }
     }
