@@ -7,26 +7,32 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-     * data-types
-        Write a C# Sharp program that takes three letters as input and display them in reverse order.
+     * data_types
+        Write a C# Sharp program that takes a number and a width also a number, as input and then displays a 
+        triangle of that width, using that number.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            char letter,letter1,letter2;
-  
-            Console.Write("Input letter: ");
-            letter = Convert.ToChar(Console.ReadLine());
+            Console.Write("Input a number: ");
+            int num = Convert.ToInt32( Console.ReadLine() );
  
-            Console.Write("Input letter: ");
-            letter1 = Convert.ToChar(Console.ReadLine());       
+            Console.Write("Input the desired width: ");
+            int width = Convert.ToInt32( Console.ReadLine() );
  
-            Console.Write("Input letter: ");
-            letter2 = Convert.ToChar(Console.ReadLine());
-             
-            Console.WriteLine("{0} {1} {2}",letter2,letter1,letter);
+            int height = width;   
+            for (int row=0; row < height; row++)
+            {
+                for (int column=0; column < width; column++)
+                {
+                    Console.Write( num );
+                }
+ 
+            Console.WriteLine();
+            width--;
+            }
         }
     }
 }
