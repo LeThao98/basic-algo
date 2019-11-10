@@ -6,15 +6,15 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to create a new list from a given list of strings where each element is replaced
-        by 4 copies of the string concatenated together.
+        Write a C# Sharp program to create a new list from a given list of integers where each integer value
+        is added to 2 and the result value is multiplied by 5.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            List<string> mylist = test(new List<string>(new string[] { "1", "2", "3", "4" }));
+            List<int> mylist = test(new List<int>(new int[] { 1, 2, 3, 4 }));
             foreach (var i in mylist)
             {
                 Console.Write(i.ToString() + " ");
@@ -22,10 +22,10 @@ namespace basic_algo
             Console.ReadKey();
         }
 
-        public static List<string> test(List<string> nums_str)
+        public static List<int> test(List<int> nums)
         {
-            IEnumerable<string> s = nums_str.Select(x => x = x + x + x + x);
-            return s.ToList();
+            IEnumerable<int> e = nums.Select(x => 5 * (x + 2));
+            return e.ToList();
         }
     }
 }
