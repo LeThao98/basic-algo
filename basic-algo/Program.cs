@@ -1,41 +1,30 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to create a new array of given length using the odd numbers from a given array of positive integers.
+        Write a C# Sharp program to create a new list from a given list of integers where each element is multiplied by 3.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            int[] item = test(new[] { 1, 2, 3, 5, 7, 9, 10 }, 3);
-            Console.Write("New array: ");
-            foreach (var i in item)
+            List<int> mylist = test(new List<int>(new int[] { 1, 2, 3, 4 }));
+            foreach (var i in mylist)
             {
                 Console.Write(i.ToString() + " ");
             }
             Console.ReadKey();
         }
 
-        public static int[] test(int[] nums, int count)
+        public static List<int> test(List<int> nums)
         {
-            int[] evens = new int[count];
-            int j = 0;
-
-            for (int i = 0; j < count; i++)
-            {
-                if (nums[i] % 2 != 0)
-                {
-                    evens[j] = nums[i];
-                    j++;
-                }
-            }
-
-            return evens;
+            IEnumerable<int> doubled = nums.Select(x => x *= 3);
+            return doubled.ToList<int>();
         }
     }
 }
