@@ -8,22 +8,24 @@ namespace basic_algo
 {
     /*
      * data_types
-        Write a C# Sharp program that takes the radius of a sphere as input and calculate and display the surface and volume of the sphere.
+        Write a C# Sharp program that takes a character as input and check the input (lowercase) is a vowel, a digit, or any other symbol.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            float r;
-            float pi = 3.1415926535f;
+            char symbol;
+            List<char> vowels = new List<char>() { 'a', 'e', 'i', 'o', 'u' };
+            Console.Write("Input a symbol: ");
+            symbol = Convert.ToChar(Console.ReadLine());
 
-            Console.Write("Radius: ");
-            r = Convert.ToSingle(Console.ReadLine());
-
-            Console.WriteLine(4 * pi * (r * r));
-
-            Console.WriteLine(4f / 3f * pi * (r * r * r));
+            if (vowels.Contains(symbol))
+                Console.WriteLine("It's a lowercase vowel.");
+            else if ((symbol >= '0') && (symbol <= '9'))
+                Console.WriteLine("It's a digit.");
+            else
+                Console.Write("It's another symbol.");
             Console.ReadKey();
         }
     }
