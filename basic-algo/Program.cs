@@ -6,15 +6,14 @@ using System.Linq;
 namespace basic_algo
 {
     /*
-        Write a C# Sharp program to create a new list from a given list of integers where each integer value
-        is added to 2 and the result value is multiplied by 5.
+       Write a C# Sharp program to create a new list of the rightmost digits from a given list of positive integers.
     */
 
     internal class Program
     {
         private static void Main(string[] args)
         {
-            List<int> mylist = test(new List<int>(new int[] { 1, 2, 3, 4 }));
+            List<int> mylist = test(new List<int>(new int[] { 10, 22, 35, 41 }));
             foreach (var i in mylist)
             {
                 Console.Write(i.ToString() + " ");
@@ -24,7 +23,7 @@ namespace basic_algo
 
         public static List<int> test(List<int> nums)
         {
-            IEnumerable<int> e = nums.Select(x => 5 * (x + 2));
+            IEnumerable<int> e = nums.Select(x => x % 10);
             return e.ToList();
         }
     }
