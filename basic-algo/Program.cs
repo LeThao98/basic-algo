@@ -8,33 +8,34 @@ namespace basic_algo
 {
     /*
      * data_types
-        Write a C# Sharp program that takes userid and password as input (type string). After 3 wrong attempts, user will be rejected.
+        Write a C# Sharp program that takes two numbers as input and perform an operation (+,-,*,x,/) 
+        on them and displays the result of that operation.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int count = 1;          
-            string right_username = "admin", right_password = "1234";
-            bool result = false;
-            do
-            {
-                Console.Write("Input a username: ");
-                string username = Console.ReadLine();
-                Console.Write("Input a password: ");
-                string password = Console.ReadLine();
-                count ++;
-                if(username == right_username && password == right_password)
-                    result = true;
-            }
-            while(count <= 3 && result != true);
-            if(result == true){
-                Console.Write("\nPassword entered successfull!\n\n");
-            }
-            else if(count > 3){
-                Console.Write("\nLogin attemp more than three times. Try later!\n\n");
-            }
+            int x, y;
+            char operation;
+
+            Console.Write("Input first number: ");
+            x = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input operation: ");
+            operation = Convert.ToChar(Console.ReadLine());
+            Console.Write("Input second number: ");
+            y = Convert.ToInt32(Console.ReadLine());
+
+            if (operation == '+')
+                Console.WriteLine("{0} + {1} = {2}", x, y, x + y);
+            else if (operation == '-')
+                Console.WriteLine("{0} - {1} = {2}", x, y, x - y);
+            else if ((operation == 'x') || (operation == '*'))
+                Console.WriteLine("{0} * {1} = {2}", x, y, x * y);
+            else if (operation == '/')
+                Console.WriteLine("{0} / {1} = {2}", x, y, x / y);
+            else
+                Console.WriteLine("Wrong Character");
             Console.ReadKey();
         }
     }
