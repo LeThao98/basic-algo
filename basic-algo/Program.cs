@@ -8,25 +8,37 @@ namespace basic_algo
 {
     /*
      * data_types
-        Write a C# Sharp program to display certain values of the function x = y2 + 2y + 1 (using integer numbers for y , ranging from -5 to +5).
+        Write a C# Sharp program that takes distance and time as input and displays the speed in kilometers per hour and miles per hour.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int x, y;
+            float distance;
+            float hour, min, sec;
 
-            Console.WriteLine("x = y² - 2y +1");
-            Console.WriteLine();
+            float timeSec;
+            float mps;
+            float kph, mph;
 
-            for (y = -5; y <= 5; y++)
-            {
-                x = y * y - 2 * y + 1;
-                Console.WriteLine(
-                    "y = {0} ; x=({0})² - 2*({0}) +1 = {1}",
-                    y, x);
-            }
+            Console.Write("Input distance(meters): ");
+            distance = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Input timeSec(hour): ");
+            hour = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Input timeSec(minutes): ");
+            min = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Input timeSec(seconds): ");
+            sec = Convert.ToSingle(Console.ReadLine());
+
+            timeSec = (hour * 3600) + (min * 60) + sec;
+            mps = distance / timeSec;
+            kph = (distance / 1000.0f) / (timeSec / 3600.0f);
+            mph = kph / 1.609f;
+
+            Console.WriteLine("Your speed in meters/sec is {0}", mps);
+            Console.WriteLine("Your speed in km/h is {0}", kph);
+            Console.WriteLine("Your speed in miles/h is {0}", mph);
             Console.ReadKey();
         }
     }
