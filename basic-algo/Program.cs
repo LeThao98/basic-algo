@@ -8,31 +8,34 @@ namespace basic_algo
 {
     /*
      * data_types
-        Write a C# Sharp program that takes a number and a width also a number, as input and then displays a 
-        triangle of that width, using that number.
+        Write a C# Sharp program that takes userid and password as input (type string). After 3 wrong attempts, user will be rejected.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            Console.Write("Input a number: ");
-            int num = Convert.ToInt32( Console.ReadLine() );
- 
-            Console.Write("Input the desired width: ");
-            int width = Convert.ToInt32( Console.ReadLine() );
- 
-            int height = width;   
-            for (int row=0; row < height; row++)
+            int count = 1;          
+            string right_username = "admin", right_password = "1234";
+            bool result = false;
+            do
             {
-                for (int column=0; column < width; column++)
-                {
-                    Console.Write( num );
-                }
- 
-            Console.WriteLine();
-            width--;
+                Console.Write("Input a username: ");
+                string username = Console.ReadLine();
+                Console.Write("Input a password: ");
+                string password = Console.ReadLine();
+                count ++;
+                if(username == right_username && password == right_password)
+                    result = true;
             }
+            while(count <= 3 && result != true);
+            if(result == true){
+                Console.Write("\nPassword entered successfull!\n\n");
+            }
+            else if(count > 3){
+                Console.Write("\nLogin attemp more than three times. Try later!\n\n");
+            }
+            Console.ReadKey();
         }
     }
 }
