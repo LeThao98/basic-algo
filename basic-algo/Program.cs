@@ -8,24 +8,27 @@ namespace basic_algo
 {
     /*
      * data_types
-        Write a C# Sharp program that takes a character as input and check the input (lowercase) is a vowel, a digit, or any other symbol.
+        Write a C# Sharp program that takes two numbers as input and returns true or false when both numbers are even or odd.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            char symbol;
-            List<char> vowels = new List<char>() { 'a', 'e', 'i', 'o', 'u' };
-            Console.Write("Input a symbol: ");
-            symbol = Convert.ToChar(Console.ReadLine());
+            int n1, n2;
+            bool bothEven;
+            Console.Write("Input First number: ");
+            n1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input Second number: ");
+            n2 = Convert.ToInt32(Console.ReadLine());
 
-            if (vowels.Contains(symbol))
-                Console.WriteLine("It's a lowercase vowel.");
-            else if ((symbol >= '0') && (symbol <= '9'))
-                Console.WriteLine("It's a digit.");
-            else
-                Console.Write("It's another symbol.");
+            //bothEven = ((n1%2!=0) || (n1%2!=0))? false:true;
+            bothEven = ((n1 % 2 == 0)
+                && (n2 % 2 == 0)) ? true : false;
+
+            Console.WriteLine(bothEven ?
+              "there're numbers bothEven" :
+              "there's a number odd");
             Console.ReadKey();
         }
     }
