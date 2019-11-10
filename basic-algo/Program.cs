@@ -8,34 +8,20 @@ namespace basic_algo
 {
     /*
      * data_types
-        Write a C# Sharp program that takes two numbers as input and perform an operation (+,-,*,x,/) 
-        on them and displays the result of that operation.
+        Write a C# Sharp program that takes the radius of a circle as input and calculate the perimeter and area of the circle.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int x, y;
-            char operation;
-
-            Console.Write("Input first number: ");
-            x = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Input operation: ");
-            operation = Convert.ToChar(Console.ReadLine());
-            Console.Write("Input second number: ");
-            y = Convert.ToInt32(Console.ReadLine());
-
-            if (operation == '+')
-                Console.WriteLine("{0} + {1} = {2}", x, y, x + y);
-            else if (operation == '-')
-                Console.WriteLine("{0} - {1} = {2}", x, y, x - y);
-            else if ((operation == 'x') || (operation == '*'))
-                Console.WriteLine("{0} * {1} = {2}", x, y, x * y);
-            else if (operation == '/')
-                Console.WriteLine("{0} / {1} = {2}", x, y, x / y);
-            else
-                Console.WriteLine("Wrong Character");
+            double r, per_cir;
+            double PI = 3.14;
+            Console.WriteLine("Input the radius of the circle : ");
+            r = Convert.ToDouble(Console.ReadLine());
+            per_cir = 2 * PI * r;
+            Console.WriteLine("Perimeter of Circle : {0}", per_cir);
+            Console.ReadKey();
             Console.ReadKey();
         }
     }
