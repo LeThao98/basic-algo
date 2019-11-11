@@ -15,18 +15,22 @@ namespace basic_algo
     {
         private static void Main(string[] args)
         {
-            int int1;
+            int chk_year;
             Console.Write("\n\n");
-            Console.Write("Check whether a number is positive or negative:\n");
-            Console.Write("-------------------------------------------");
+            Console.Write("Check whether a given year is leap year or not:\n");
+            Console.Write("----------------------------------------------");
             Console.Write("\n\n");
-            Console.Write("Input an number: ");
-            int1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input an year : ");
+            chk_year = Convert.ToInt32(Console.ReadLine());
 
-            if (int1 > 0)
-                Console.WriteLine("{0} is an positive number.\n", int1);
+            if ((chk_year % 400) == 0)
+                Console.WriteLine("{0} is a leap year.\n", chk_year);
+            else if ((chk_year % 100) == 0)
+                Console.WriteLine("{0} is not a leap year.\n", chk_year);
+            else if ((chk_year % 4) == 0)
+                Console.WriteLine("{0} is a leap year.\n", chk_year);
             else
-                Console.WriteLine("{0} is an negative number.\n", int1);
+                Console.WriteLine("{0} is not a leap year.\n", chk_year);
             Console.ReadKey();
         }
     }
