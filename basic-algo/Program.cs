@@ -8,39 +8,54 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a C# Sharp program to check whether a triangle can be formed by the given value for the angles.
+        Write a C# Sharp program to check whether an alphabet is a vowel or consonant.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int anga, angb, angc, sum; //are three angles of a triangle
+            char ch;
             Console.Write("\n\n");
-            Console.Write("Check whether a triangle can be formed by given value:\n");
-            Console.Write("--------------------------------------------------------");
+            Console.Write("check whether the input alphabet is a vowel or not:\n");
+            Console.Write("-----------------------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input angle1 of triangle: ");
-            anga = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Input angle 2 of triangle: ");
-            angb = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Input angle 3 of triangle: ");
-            angc = Convert.ToInt32(Console.ReadLine());
-
-            /* Calculate the sum of all angles of triangle */
-            sum = anga + angb + angc;
-
-            /* Check whether sum=180 then its a valid triangle otherwise not */
-            if (sum == 180)
+            Console.Write("Input an Alphabet (A-Z or a-z) : ");
+            ch = Convert.ToChar(Console.ReadLine().ToLower());
+            int i = ch;
+            if (i >= 48 && i <= 57)
             {
-                Console.Write("The triangle is valid.\n");
+                Console.Write("You entered a number, Please enter an alpahbet.");
             }
             else
             {
-                Console.Write("The triangle is not valid.\n");
+                switch (ch)
+                {
+                    case 'a':
+                        Console.WriteLine("The Alphabet is vowel");
+                        break;
+
+                    case 'i':
+                        Console.WriteLine("The Alphabet is vowel");
+                        break;
+
+                    case 'o':
+                        Console.WriteLine("The Alphabet is vowel");
+                        break;
+
+                    case 'u':
+                        Console.WriteLine("The Alphabet is vowel");
+                        break;
+
+                    case 'e':
+                        Console.WriteLine("The Alphabet is vowel");
+                        break;
+
+                    default:
+                        Console.WriteLine("The Alphabet is not a vowel");
+                        break;
+                }
             }
             Console.ReadKey();
         }
