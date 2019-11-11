@@ -7,30 +7,29 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-     * data_types
-        Write a C# Sharp program that takes a decimal number as input and displays its equivalent in binary form.
+        conditional-statement
+        Write a C# Sharp program to accept two integers and check whether they are equal or not.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            string answer;
-            string result;
+            int int1, int2;
+            Console.Write("\n\n");
+            Console.Write("Check whether two integers are equal or not:\n");
+            Console.Write("-------------------------------------------");
+            Console.Write("\n\n");
+            Console.Write("Input 1st number: ");
+            int1 = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Input a Number : ");
-            answer = Console.ReadLine();
+            Console.Write("Input 2nd number: ");
+            int2 = Convert.ToInt32(Console.ReadLine());
 
-            int num = Convert.ToInt32(answer);
-            result = "";
-            while (num > 1)
-            {
-                int remainder = num % 2;
-                result = Convert.ToString(remainder) + result;
-                num /= 2;
-            }
-            result = Convert.ToString(num) + result;
-            Console.WriteLine("Binary: {0}", result);
+            if (int1 == int2)
+                Console.WriteLine("{0} and {1} are equal.\n", int1, int2);
+            else
+                Console.WriteLine("{0} and {1} are not equal.\n", int1, int2);
             Console.ReadKey();
         }
     }
