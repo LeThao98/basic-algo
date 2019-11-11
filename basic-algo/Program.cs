@@ -8,35 +8,57 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a C program to accept a coordinate point in an XY coordinate system and determine in which quadrant the coordinate point lies.
+        Write a C program to find the eligibility of admission for a professional course based on the following criteria:
+
+          Marks in Maths >=65
+          Marks in Phy >=55
+          Marks in Chem>=50
+          Total in all three subject >=180
+          or
+          Total in Math and Subjects >=140
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int co1, co2;
+            int p, c, m;
 
             Console.Write("\n\n");
-            Console.Write("Find the quadrant in which the coordinate point lies:\n");
-            Console.Write("------------------------------------------------------");
+            Console.Write("Find eligibility for admission :\n");
+            Console.Write("----------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input the value for X coordinate :");
-            co1 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Input the value for Y coordinate :");
-            co2 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Eligibility Criteria :\n");
+            Console.Write("Marks in Maths >=65\n");
+            Console.Write("and Marks in Phy >=55\n");
+            Console.Write("and Marks in Chem>=50\n");
+            Console.Write("and Total in all three subject >=180\n");
+            Console.Write("or Total in Maths and Physics >=140\n");
+            Console.Write("-------------------------------------\n");
 
-            if (co1 > 0 && co2 > 0)
-                Console.Write("The coordinate point ({0} {1}) lies in the First quandrant.\n\n", co1, co2);
-            else if (co1 < 0 && co2 > 0)
-                Console.Write("The coordinate point ({0} {1}) lies in the Second quandrant.\n\n", co1, co2);
-            else if (co1 < 0 && co2 < 0)
-                Console.Write("The coordinate point ({0} {1}) lies in the Third quandrant.\n\n", co1, co2);
-            else if (co1 > 0 && co2 < 0)
-                Console.Write("The coordinate point ({0} {1}) lies in the Fourth quandrant.\n\n", co1, co2);
-            else if (co1 == 0 && co2 == 0)
-                Console.Write("The coordinate point ({0} {1}) lies at the origin.\n\n", co1, co2);
+            Console.Write("Input the marks obtained in Physics :");
+            p = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input the marks obtained in Chemistry :");
+            c = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input the marks obtained in Mathematics :");
+            m = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Total marks of Maths, Physics and Chemistry : {0}\n", m + p + c);
+            Console.Write("Total marks of Maths and  Physics : {0}\n", m + p);
+
+            if (m >= 65)
+                if (p >= 55)
+                    if (c >= 50)
+                        if ((m + p + c) >= 180 || (m + p) >= 140)
+                            Console.Write("The  candidate is eligible for admission.\n");
+                        else
+                            Console.Write("The candidate is not eligible.\n\n");
+                    else
+                        Console.Write("The candidate is not eligible.\n\n");
+                else
+                    Console.Write("The candidate is not eligible.\n\n");
+            else
+                Console.Write("The candidate is not eligible.\n\n");
             Console.ReadKey();
         }
     }
