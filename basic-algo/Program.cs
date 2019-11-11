@@ -8,40 +8,40 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a C# Sharp program to read temperature in centigrade and display suitable message according to temperature.
-
-          Temp < 0 then Freezing weather
-          Temp 0-10 then Very Cold weather
-          Temp 10-20 then Cold weather
-          Temp 20-30 then Normal in Temp
-          Temp 30-40 then Its Hot
-          Temp >=40 then Its Very Hot
+        Write a C# Sharp program to check whether a triangle is Equilateral, Isosceles or Scalene.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int tmp;
+            int sidea, sideb, sidec;
             Console.Write("\n\n");
-            Console.Write("Accept a temperature in centigrade and display a suitable message:\n");
-            Console.Write("--------------------------------------------------------------------");
+            Console.Write("Check whether a triangle is Equilateral, Isosceles or Scalene:\n");
+            Console.Write("----------------------------------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input days temperature : ");
-            tmp = Convert.ToInt32(Console.ReadLine());
-            if (tmp < 0)
-                Console.Write("Freezing weather.\n");
-            else if (tmp < 10)
-                Console.Write("Very cold weather.\n");
-            else if (tmp < 20)
-                Console.Write("Cold weather.\n");
-            else if (tmp < 30)
-                Console.Write("Normal in temp.\n");
-            else if (tmp < 40)
-                Console.Write("Its Hot.\n");
+            Console.Write("Input side 1 of triangle: ");
+            sidea = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Input side 2 of triangle: ");
+            sideb = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Input side 3 of triangle: ");
+            sidec = Convert.ToInt32(Console.ReadLine());
+
+            if (sidea == sideb && sideb == sidec)
+            {
+                Console.Write("This is an equilateral triangle.\n");
+            }
+            else if (sidea == sideb || sidea == sidec || sideb == sidec)
+            {
+                Console.Write("This is an isosceles triangle.\n");
+            }
             else
-                Console.Write("Its very hot.\n");
+            {
+                Console.Write("This is a scalene triangle.\n");
+            }
             Console.ReadKey();
         }
     }
