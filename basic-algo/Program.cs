@@ -8,67 +8,75 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a program in C# Sharp to read any day number in integer and display day name in the word.
+        Write a program in C# Sharp to read any Month Number in integer and display Month name in the word.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int cdigit;
+            int monno;
 
             Console.Write("\n\n");
-            Console.Write("Accept digit and display in word:\n");
-            Console.Write("-----------------------------------");
+            Console.Write("Read month number and display month name:\n");
+            Console.Write("-------------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input Digit(0-9) : ");
-            cdigit = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input Month No : ");
+            monno = Convert.ToInt32(Console.ReadLine());
 
-            switch (cdigit)
+            switch (monno)
             {
-                case 0:
-                    Console.Write("Zero\n");
-                    break;
-
                 case 1:
-                    Console.Write("one\n");
+                    Console.Write("January\n");
                     break;
 
                 case 2:
-                    Console.Write("Two\n");
+                    Console.Write("February\n");
                     break;
 
                 case 3:
-                    Console.Write("Three\n");
+                    Console.Write("March\n");
                     break;
 
                 case 4:
-                    Console.Write("Four\n");
+                    Console.Write("April\n");
                     break;
 
                 case 5:
-                    Console.Write("Five\n");
+                    Console.Write("May\n");
                     break;
 
                 case 6:
-                    Console.Write("Six\n");
+                    Console.Write("June\n");
                     break;
 
                 case 7:
-                    Console.Write("Seven\n");
+                    Console.Write("July\n");
                     break;
 
                 case 8:
-                    Console.Write("Eight\n");
+                    Console.Write("August\n");
                     break;
 
                 case 9:
-                    Console.Write("Nine\n");
+                    Console.Write("September\n");
+                    break;
+
+                case 10:
+                    Console.Write("October\n");
+                    break;
+
+                case 11:
+                    Console.Write("November\n");
+                    break;
+
+                case 12:
+                    Console.Write("December\n");
                     break;
 
                 default:
-                    Console.Write("invalid digit. \nPlease try again ....\n");
+                    Console.Write("invalid Month number. \nPlease try again ....\n");
                     break;
             }
 
