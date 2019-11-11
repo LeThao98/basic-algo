@@ -8,50 +8,52 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a program in C# Sharp to read any Month Number in integer and display the number of days for this month.
+        Write a program in C# Sharp which is a Menu-Driven Program to compute the area of the various geometrical shape.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int monno;
+            int choice, r, l, w, b, h;
+            double area = 0;
 
             Console.Write("\n\n");
-            Console.Write("Read month number and display number of days for that month:\n");
-            Console.Write("--------------------------------------------------------------");
+            Console.Write("A menu driven program to compute the area of various geometrical shape:\n");
+            Console.Write("-------------------------------------------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input Month No : ");
-            monno = Convert.ToInt32(Console.ReadLine());
-            switch (monno)
+            Console.Write("Input 1 for area of circle\n");
+            Console.Write("Input 2 for area of rectangle\n");
+            Console.Write("Input 3 for area of triangle\n");
+            Console.Write("Input your choice : ");
+            choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
             {
                 case 1:
-                case 3:
-                case 5:
-                case 7:
-                case 8:
-                case 10:
-                case 12:
-                    Console.Write("Month  have 31 days. \n");
+                    Console.Write("Input radius of the circle : ");
+                    r = Convert.ToInt32(Console.ReadLine());
+                    area = 3.14 * r * r;
                     break;
 
                 case 2:
-                    Console.Write("The 2nd month is a February and have 28 days. \n");
-                    Console.Write("in leap year The February month  Have 29 days.\n");
+                    Console.Write("Input length  of the rectangle : ");
+                    l = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Input  width of the rectangle : ");
+                    w = Convert.ToInt32(Console.ReadLine());
+                    area = l * w;
                     break;
 
-                case 4:
-                case 6:
-                case 9:
-                case 11:
-                    Console.Write("Month have 30 days. \n");
-                    break;
-
-                default:
-                    Console.Write("invalid Month number.\nPlease try again ....\n");
+                case 3:
+                    Console.Write("Input the base of the triangle :");
+                    b = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Input the hight of the triangle :");
+                    h = Convert.ToInt32(Console.ReadLine());
+                    area = .5 * b * h;
                     break;
             }
+            Console.Write("The area is : {0}\n", area);
 
             Console.ReadKey();
         }
