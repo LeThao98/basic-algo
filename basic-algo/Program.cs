@@ -8,57 +8,58 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a program in C# Sharp to accept a grade and display the equivalent description:
-
-             Grade	 Description
-            E	    Excellent
-            V	    Very Good
-            G	    Good
-            A	    Average
-            F	    Fail
+        Write a program in C# Sharp to read any day number in integer and display day name in the word.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            string notes;
-            char grd;
+            int dayno;
+
             Console.Write("\n\n");
-            Console.Write("Accept a grade and display equivalent description:\n");
-            Console.Write("---------------------------------------------------");
+            Console.Write("Accept day number and display its equivalent day name in word:\n");
+            Console.Write("----------------------------------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input the grade :");
-            grd = Convert.ToChar(Console.ReadLine().ToUpper());
+            Console.Write("Input Day No : ");
+            dayno = Convert.ToInt32(Console.ReadLine());
 
-            switch (grd)
+            switch (dayno)
             {
-                case 'E':
-                    notes = " Excellent";
+                case 1:
+                    Console.Write("Monday \n");
                     break;
 
-                case 'V':
-                    notes = " Very Good";
+                case 2:
+                    Console.Write("Tuesday \n");
                     break;
 
-                case 'G':
-                    notes = " Good ";
+                case 3:
+                    Console.Write("Wednesday \n");
                     break;
 
-                case 'A':
-                    notes = " Average";
+                case 4:
+                    Console.Write("Thursday \n");
                     break;
 
-                case 'F':
-                    notes = " Fails";
+                case 5:
+                    Console.Write("Friday \n");
+                    break;
+
+                case 6:
+                    Console.Write("Saturday \n");
+                    break;
+
+                case 7:
+                    Console.Write("Sunday  \n");
                     break;
 
                 default:
-                    notes = "Invalid Grade Found.";
+                    Console.Write("Invalid day number. \nPlease try again ....\n");
                     break;
             }
-            Console.Write("You have chosen  : {0}\n", notes);
+
             Console.ReadKey();
         }
     }
