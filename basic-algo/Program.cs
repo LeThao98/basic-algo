@@ -8,52 +8,62 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a program in C# Sharp which is a Menu-Driven Program to compute the area of the various geometrical shape.
+        Write a program in C# Sharp which is a Menu-Driven Program to perform a simple calculation.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int choice, r, l, w, b, h;
-            double area = 0;
+            nt num1, num2, opt;
 
             Console.Write("\n\n");
-            Console.Write("A menu driven program to compute the area of various geometrical shape:\n");
-            Console.Write("-------------------------------------------------------------------------");
+            Console.Write("A menu driven program for a simple calculator:\n");
+            Console.Write("------------------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input 1 for area of circle\n");
-            Console.Write("Input 2 for area of rectangle\n");
-            Console.Write("Input 3 for area of triangle\n");
-            Console.Write("Input your choice : ");
-            choice = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the first Integer :");
+            num1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the second Integer :");
+            num2 = Convert.ToInt32(Console.ReadLine());
 
-            switch (choice)
+            Console.Write("\nHere are the options :\n");
+            Console.Write("1-Addition.\n2-Substraction.\n3-Multiplication.\n4-Division.\n5-Exit.\n");
+            Console.Write("\nInput your choice :");
+            opt = Convert.ToInt32(Console.ReadLine());
+
+            switch (opt)
             {
                 case 1:
-                    Console.Write("Input radius of the circle : ");
-                    r = Convert.ToInt32(Console.ReadLine());
-                    area = 3.14 * r * r;
+                    Console.Write("The Addition of  {0} and {1} is: {2}\n", num1, num2, num1 + num2);
                     break;
 
                 case 2:
-                    Console.Write("Input length  of the rectangle : ");
-                    l = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Input  width of the rectangle : ");
-                    w = Convert.ToInt32(Console.ReadLine());
-                    area = l * w;
+                    Console.Write("The Substraction of {0}  and {1} is: {2}\n", num1, num2, num1 - num2);
                     break;
 
                 case 3:
-                    Console.Write("Input the base of the triangle :");
-                    b = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Input the hight of the triangle :");
-                    h = Convert.ToInt32(Console.ReadLine());
-                    area = .5 * b * h;
+                    Console.Write("The Multiplication of {0}  and {1} is: {2}\n", num1, num2, num1 * num2);
+                    break;
+
+                case 4:
+                    if (num2 == 0)
+                    {
+                        Console.Write("The second integer is zero. Devide by zero.\n");
+                    }
+                    else
+                    {
+                        Console.Write("The Division of {0}  and {1} is : {2}\n", num1, num2, num1 / num2);
+                    }
+                    break;
+
+                case 5:
+                    break;
+
+                default:
+                    Console.Write("Input correct option\n");
                     break;
             }
-            Console.Write("The area is : {0}\n", area);
 
             Console.ReadKey();
         }
