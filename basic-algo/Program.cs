@@ -8,28 +8,32 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a C# Sharp program to read age of a candidate and determine whether it is eligible for casting his/her own vote.
+        Write a C# Sharp program to read the value of an integer m and display the value of n is 1 when m is larger than 0,
+        0 when m is 0 and -1 when m is less than 0.
+
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int vote_age;
+            int m, n;
             Console.Write("\n\n");
-            Console.Write("Detrermine a specific age is eligible for casting the vote:\n");
+            Console.Write("Display the value of n is 1,0 and -1 for the value of er m:\n");
             Console.Write("----------------------------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input the age of the candidate : ");
-            vote_age = Convert.ToInt32(Console.ReadLine());
-            if (vote_age < 18)
-            {
-                Console.Write("Sorry, You are not eligible to caste your vote.\n");
-                Console.Write("You would be able to caste your vote after {0} year.\n\n", 18 - vote_age);
-            }
+            Console.Write("Input the  value of m :");
+            m = Convert.ToInt32(Console.ReadLine());
+            if (m != 0)
+                if (m > 0)
+                    n = 1;
+                else
+                    n = -1;
             else
-                Console.Write("Congratulation! You are eligible for casting your vote.\n\n");
+                n = 0;
+            Console.Write("The value of m = {0} \n", m);
+            Console.Write("The value of n = {0} \n\n", n);
             Console.ReadKey();
         }
     }
