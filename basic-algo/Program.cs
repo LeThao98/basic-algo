@@ -8,32 +8,30 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a C# Sharp program to read the value of an integer m and display the value of n is 1 when m is larger than 0,
-        0 when m is 0 and -1 when m is less than 0.
-
+        Write a C# Sharp program to accept the height of a person in centimeter and categorize the person according to their height.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int m, n;
+            float PerHeight;
             Console.Write("\n\n");
-            Console.Write("Display the value of n is 1,0 and -1 for the value of er m:\n");
-            Console.Write("----------------------------------------------------------");
+            Console.Write("Accept the height of a person in centimeter and categorize them:\n");
+            Console.Write("----------------------------------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input the  value of m :");
-            m = Convert.ToInt32(Console.ReadLine());
-            if (m != 0)
-                if (m > 0)
-                    n = 1;
-                else
-                    n = -1;
+            Console.Write("Input the height of the person (in centimetres):");
+            PerHeight = Convert.ToInt32(Console.ReadLine());
+
+            if (PerHeight < 150.0)
+                Console.Write("The person is Dwarf. \n\n");
+            else if ((PerHeight >= 150.0) && (PerHeight <= 165.0))
+                Console.Write("The person is  average heighted. \n\n");
+            else if ((PerHeight >= 165.0) && (PerHeight <= 195.0))
+                Console.Write("The person is taller. \n\n");
             else
-                n = 0;
-            Console.Write("The value of m = {0} \n", m);
-            Console.Write("The value of n = {0} \n\n", n);
+                Console.Write("Abnormal height.\n\n");
             Console.ReadKey();
         }
     }
