@@ -8,49 +8,51 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a C# Sharp program to calculate root of Quadratic Equation.
+        Write a C# Sharp program to read roll no, name and marks of three subjects and calculate the total, percentage and division.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int a, b, c;
+            double rl, phy, che, ca, total;
+            double per;
+            string nm, div;
 
-            double d, x1, x2;
             Console.Write("\n\n");
-            Console.Write("Calculate root of Quadratic Equation :\n");
-            Console.Write("----------------------------------------");
+            Console.Write("Calculate the total, percentage and division to take marks of three subjects:\n");
+            Console.Write("-------------------------------------------------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input the value of a : ");
-            a = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Input the value of b : ");
-            b = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Input the value of c : ");
-            c = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input the Roll Number of the student :");
+            rl = Convert.ToInt32(Console.ReadLine());
 
-            d = b * b - 4 * a * c;
-            if (d == 0)
-            {
-                Console.Write("Both roots are equal.\n");
-                x1 = -b / (2.0 * a);
-                x2 = x1;
-                Console.Write("First  Root Root1= {0}\n", x1);
-                Console.Write("Second Root Root2= {0}\n", x2);
-            }
-            else if (d > 0)
-            {
-                Console.Write("Both roots are real and diff-2\n");
+            Console.Write("Input the Name of the Student :");
+            nm = Console.ReadLine();
 
-                x1 = (-b + Math.Sqrt(d)) / (2 * a);
-                x2 = (-b - Math.Sqrt(d)) / (2 * a);
+            Console.Write("Input  the marks of Physics : ");
+            phy = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input  the marks of  Chemistry : ");
+            che = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input  the marks of Computer Application : ");
+            ca = Convert.ToInt32(Console.ReadLine());
 
-                Console.Write("First  Root Root1= {0}\n", x1);
-                Console.Write("Second Root root2= {0}\n", x2);
-            }
+            total = phy + che + ca;
+            per = total / 3.0;
+            if (per >= 60)
+                div = "First";
             else
-                Console.Write("Root are imeainary;\nNo Solution. \n\n");
+            if (per < 60 && per >= 48)
+                div = "Second";
+            else
+                if (per < 48 && per >= 36)
+                div = "Pass";
+            else
+                div = "Fail";
+
+            Console.Write("\nRoll No : {0}\nName of Student : {1}\n", rl, nm);
+            Console.Write("Marks in Physics : {0}\nMarks in Chemistry : {1}\nMarks in Computer Application : {2}\n", phy, che, ca);
+            Console.Write("Total Marks = {0}\nPercentage = {1}\nDivision = {2}\n", total, per, div);
             Console.ReadKey();
         }
     }
