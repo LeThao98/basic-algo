@@ -8,57 +8,49 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a C program to find the eligibility of admission for a professional course based on the following criteria:
-
-          Marks in Maths >=65
-          Marks in Phy >=55
-          Marks in Chem>=50
-          Total in all three subject >=180
-          or
-          Total in Math and Subjects >=140
+        Write a C# Sharp program to calculate root of Quadratic Equation.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int p, c, m;
+            int a, b, c;
 
+            double d, x1, x2;
             Console.Write("\n\n");
-            Console.Write("Find eligibility for admission :\n");
-            Console.Write("----------------------------------");
+            Console.Write("Calculate root of Quadratic Equation :\n");
+            Console.Write("----------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Eligibility Criteria :\n");
-            Console.Write("Marks in Maths >=65\n");
-            Console.Write("and Marks in Phy >=55\n");
-            Console.Write("and Marks in Chem>=50\n");
-            Console.Write("and Total in all three subject >=180\n");
-            Console.Write("or Total in Maths and Physics >=140\n");
-            Console.Write("-------------------------------------\n");
-
-            Console.Write("Input the marks obtained in Physics :");
-            p = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Input the marks obtained in Chemistry :");
+            Console.Write("Input the value of a : ");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input the value of b : ");
+            b = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input the value of c : ");
             c = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Input the marks obtained in Mathematics :");
-            m = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Total marks of Maths, Physics and Chemistry : {0}\n", m + p + c);
-            Console.Write("Total marks of Maths and  Physics : {0}\n", m + p);
 
-            if (m >= 65)
-                if (p >= 55)
-                    if (c >= 50)
-                        if ((m + p + c) >= 180 || (m + p) >= 140)
-                            Console.Write("The  candidate is eligible for admission.\n");
-                        else
-                            Console.Write("The candidate is not eligible.\n\n");
-                    else
-                        Console.Write("The candidate is not eligible.\n\n");
-                else
-                    Console.Write("The candidate is not eligible.\n\n");
+            d = b * b - 4 * a * c;
+            if (d == 0)
+            {
+                Console.Write("Both roots are equal.\n");
+                x1 = -b / (2.0 * a);
+                x2 = x1;
+                Console.Write("First  Root Root1= {0}\n", x1);
+                Console.Write("Second Root Root2= {0}\n", x2);
+            }
+            else if (d > 0)
+            {
+                Console.Write("Both roots are real and diff-2\n");
+
+                x1 = (-b + Math.Sqrt(d)) / (2 * a);
+                x2 = (-b - Math.Sqrt(d)) / (2 * a);
+
+                Console.Write("First  Root Root1= {0}\n", x1);
+                Console.Write("Second Root root2= {0}\n", x2);
+            }
             else
-                Console.Write("The candidate is not eligible.\n\n");
+                Console.Write("Root are imeainary;\nNo Solution. \n\n");
             Console.ReadKey();
         }
     }
