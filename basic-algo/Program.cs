@@ -8,54 +8,38 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a C# Sharp program to check whether an alphabet is a vowel or consonant.
+        Write a C# Sharp program to calculate profit and loss on a transaction.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            char ch;
+            int cprice, sprice, plamt;
+
             Console.Write("\n\n");
-            Console.Write("check whether the input alphabet is a vowel or not:\n");
-            Console.Write("-----------------------------------------------------");
+            Console.Write("Calculate profit and loss:\n");
+            Console.Write("----------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input an Alphabet (A-Z or a-z) : ");
-            ch = Convert.ToChar(Console.ReadLine().ToLower());
-            int i = ch;
-            if (i >= 48 && i <= 57)
+            Console.Write("Input Cost Price: ");
+            cprice = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input Selling Price: ");
+            sprice = Convert.ToInt32(Console.ReadLine());
+
+            if (sprice > cprice)
             {
-                Console.Write("You entered a number, Please enter an alpahbet.");
+                plamt = sprice - cprice;
+                Console.Write("\nYou can booked your profit amount : {0}\n", plamt);
+            }
+            else if (cprice > sprice)
+            {
+                plamt = cprice - sprice;
+                Console.Write("\nYou got a loss of amount : {0}\n", plamt);
             }
             else
             {
-                switch (ch)
-                {
-                    case 'a':
-                        Console.WriteLine("The Alphabet is vowel");
-                        break;
-
-                    case 'i':
-                        Console.WriteLine("The Alphabet is vowel");
-                        break;
-
-                    case 'o':
-                        Console.WriteLine("The Alphabet is vowel");
-                        break;
-
-                    case 'u':
-                        Console.WriteLine("The Alphabet is vowel");
-                        break;
-
-                    case 'e':
-                        Console.WriteLine("The Alphabet is vowel");
-                        break;
-
-                    default:
-                        Console.WriteLine("The Alphabet is not a vowel");
-                        break;
-                }
+                Console.Write("\nYou are running in no profit no loss condition.\n");
             }
             Console.ReadKey();
         }
