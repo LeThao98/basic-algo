@@ -8,30 +8,41 @@ namespace basic_algo
 {
     /*
         conditional-statement
-        Write a C# Sharp program to accept the height of a person in centimeter and categorize the person according to their height.
+        Write a C program to find the largest of three numbers.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            float PerHeight;
+            int num1, num2, num3;
             Console.Write("\n\n");
-            Console.Write("Accept the height of a person in centimeter and categorize them:\n");
-            Console.Write("----------------------------------------------------------------");
+            Console.Write("Find the largest of three numbers:\n");
+            Console.Write("------------------------------------");
             Console.Write("\n\n");
 
-            Console.Write("Input the height of the person (in centimetres):");
-            PerHeight = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input the 1st number :");
+            num1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input the  2nd number :");
+            num2 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Input the 3rd  number :");
+            num3 = Convert.ToInt32(Console.ReadLine());
 
-            if (PerHeight < 150.0)
-                Console.Write("The person is Dwarf. \n\n");
-            else if ((PerHeight >= 150.0) && (PerHeight <= 165.0))
-                Console.Write("The person is  average heighted. \n\n");
-            else if ((PerHeight >= 165.0) && (PerHeight <= 195.0))
-                Console.Write("The person is taller. \n\n");
+            if (num1 > num2)
+            {
+                if (num1 > num3)
+                {
+                    Console.Write("The 1st Number is the greatest among three. \n\n");
+                }
+                else
+                {
+                    Console.Write("The 3rd Number is the greatest among three. \n\n");
+                }
+            }
+            else if (num2 > num3)
+                Console.Write("The 2nd Number is the greatest among three \n\n");
             else
-                Console.Write("Abnormal height.\n\n");
+                Console.Write("The 3rd Number is the greatest among three \n\n");
             Console.ReadKey();
         }
     }
