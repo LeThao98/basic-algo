@@ -7,65 +7,61 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        conditional-statement
-        Write a program in C# Sharp which is a Menu-Driven Program to perform a simple calculation.
+        searching-and-sorting-algorithm: Shell Sort
+        Write a C# Sharp program to sort a list of elements using Shell sort.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            nt num1, num2, opt;
+            //int[] arr = new int[] { 5, -4, 11, 0, 18, 22, 67, 51, 6 };
+            int[] arr = new int[] { 62, 83, 18, 53, 07, 17, 95, 86, 47, 69, 25, 28 };
+            int n;
 
-            Console.Write("\n\n");
-            Console.Write("A menu driven program for a simple calculator:\n");
-            Console.Write("------------------------------------------------");
-            Console.Write("\n\n");
-
-            Console.Write("Enter the first Integer :");
-            num1 = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter the second Integer :");
-            num2 = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("\nHere are the options :\n");
-            Console.Write("1-Addition.\n2-Substraction.\n3-Multiplication.\n4-Division.\n5-Exit.\n");
-            Console.Write("\nInput your choice :");
-            opt = Convert.ToInt32(Console.ReadLine());
-
-            switch (opt)
-            {
-                case 1:
-                    Console.Write("The Addition of  {0} and {1} is: {2}\n", num1, num2, num1 + num2);
-                    break;
-
-                case 2:
-                    Console.Write("The Substraction of {0}  and {1} is: {2}\n", num1, num2, num1 - num2);
-                    break;
-
-                case 3:
-                    Console.Write("The Multiplication of {0}  and {1} is: {2}\n", num1, num2, num1 * num2);
-                    break;
-
-                case 4:
-                    if (num2 == 0)
-                    {
-                        Console.Write("The second integer is zero. Devide by zero.\n");
-                    }
-                    else
-                    {
-                        Console.Write("The Division of {0}  and {1} is : {2}\n", num1, num2, num1 / num2);
-                    }
-                    break;
-
-                case 5:
-                    break;
-
-                default:
-                    Console.Write("Input correct option\n");
-                    break;
-            }
+            n = arr.Length;
+            Console.WriteLine("Original Array Elements :");
+            ShowArrayElements(arr);
+            ShellSort(arr);
+            Console.WriteLine("\nSorted Array Elements :");
+            ShowArrayElements(arr);
 
             Console.ReadKey();
+        }
+
+        private static int[] ShellSort(int[] a)
+        {
+            int n = a.Length;
+            int gap = 5;
+            while (gap > 0)
+            {
+                for (int i = gap; i < n; i++)
+                {
+                    int j;
+                    int temp = a[i];
+                    for (j = i; j >= gap && temp < a[j - gap];)
+                    {
+                        a[j] = a[j - gap];
+                        j -= gap;
+                    }
+                    a[j] = temp;
+                }
+                if (gap / 2 != 0)
+                {
+                    gap /= 2;
+                }
+                else gap = 0;
+            }
+            return a;
+        }
+
+        private static void ShowArrayElements(int[] arr)
+        {
+            foreach (var element in arr)
+            {
+                Console.Write(element + " ");
+            }
+            Console.Write("\n");
         }
     }
 }
