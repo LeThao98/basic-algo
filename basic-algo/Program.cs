@@ -15,53 +15,76 @@ namespace basic_algo
     {
         private static void Main(string[] args)
         {
-            //int[] arr = new int[] { 5, -4, 11, 0, 18, 22, 67, 51, 6 };
-            int[] arr = new int[] { 62, 83, 18, 53, 07, 17, 95, 86, 47, 69, 25, 28 };
-            int n;
-
-            n = arr.Length;
-            Console.WriteLine("Original Array Elements :");
-            ShowArrayElements(arr);
-            ShellSort(arr);
-            Console.WriteLine("\nSorted Array Elements :");
-            ShowArrayElements(arr);
+            List<int> list = new List<int>() { 2, 1, 3, 0, 7, 8 };
+            Console.WriteLine("Sorting...");
+            Bogo_sort(list, true, 5);
+            Console.WriteLine("Press any key to exit.");
 
             Console.ReadKey();
         }
 
-        private static int[] ShellSort(int[] a)
+        private static void Bogo_sort(List<int> list, bool announce, int delay)
         {
-            int n = a.Length;
-            int gap = 5;
-            while (gap > 0)
+            int iteration = 0;
+            while (!IsSorted(list))
             {
-                for (int i = gap; i < n; i++)
+                if (announce)
                 {
-                    int j;
-                    int temp = a[i];
-                    for (j = i; j >= gap && temp < a[j - gap];)
-                    {
-                        a[j] = a[j - gap];
-                        j -= gap;
-                    }
-                    a[j] = temp;
+                    Print_Iteration(list, iteration);
                 }
-                if (gap / 2 != 0)
+                if (delay != 0)
                 {
-                    gap /= 2;
+                    System.Threading.Thread.Sleep(Math.Abs(delay));
                 }
-                else gap = 0;
+                list = Remap(list);
+                iteration++;
             }
-            return a;
+
+            Print_Iteration(list, iteration);
+            Console.WriteLine();
+            Console.WriteLine("Bogo_sort completed after {0} iterations.", iteration);
         }
 
-        private static void ShowArrayElements(int[] arr)
+        private static void Print_Iteration(List<int> list, int iteration)
         {
-            foreach (var element in arr)
+            Console.Write("Bogo_sort iteration {0}: ", iteration);
+            for (int i = 0; i < list.Count; i++)
             {
-                Console.Write(element + " ");
+                Console.Write(list[i]);
+                if (i < list.Count)
+                {
+                    Console.Write(" ");
+                }
             }
-            Console.Write("\n");
+            Console.WriteLine();
+        }
+
+        private static bool IsSorted(List<int> list)
+        {
+            for (int i = 0; i < list.Count - 1; i++)
+            {
+                if (list[i] > list[i + 1])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private static List<int> Remap(List<int> list)
+        {
+            int temp;
+            List<int> newList = new List<int>();
+            Random r = new Random();
+
+            while (list.Count > 0)
+            {
+                temp = (int)r.Next(list.Count);
+                newList.Add(list[temp]);
+                list.RemoveAt(temp);
+            }
+            return newList;
         }
     }
 }
