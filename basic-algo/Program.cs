@@ -7,45 +7,113 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        searching-and-sorting-algorithm: Counting Sort
-        Write a C# Sharp program to sort a list of elements using Counting sort.
+        searching-and-sorting-algorithm: Heap Sort
+        Write a C# Sharp program to sort a list of elements using Heap sort.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int[] array = new int[10] { 2, 5, -4, 11, 0, 8, 22, 67, 51, 6 };
-            int[] sortedArray = new int[array.Length];
-            Console.WriteLine("\n" + "Original array :");
-            foreach (int aa in array)
-                Console.Write(aa + " ");
-            int minVal = array[0], maxVal = array[0];
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] > maxVal) maxVal = array[i];
-                if (array[i] < minVal) minVal = array[i];
-            }
-            int[] counts = new int[maxVal - minVal + 1];
-            for (int i = 0; i < array.Length; i++)
-            {
-                counts[array[i] - minVal]++;
-            }
-            counts[0]--;
-            for (int i = 1; i < counts.Length; i++)
-            {
-                counts[i] = counts[i] + counts[i - 1];
-            }
-            for (int i = 0; i < array.Length; i++)
-            {
-                sortedArray[counts[array[i] - minVal]--] = array[i];
-            }
-            Console.Write(counts);
-            Console.WriteLine("\n" + "Sorted array :");
-            foreach (int aa in sortedArray)
-                Console.Write(aa + " ");
-            Console.Write("\n");
+            int[] mykeys = new int[] { 2, 5, -4, 11, 0, 18, 22, 67, 51, 6 };
+
+            //double[] mykeys = new double[] {2.22, 0.5, 2.7, -1.0, 11.2};
+
+            //string[] mykeys = new string[] {"Red", "White", "Black", "Green", "Orange"};
+
+            Console.WriteLine("\nOriginal Array Elements :");
+            printArray(mykeys);
+
+            heapSort(mykeys);
+
+            Console.WriteLine("\n\nSorted Array Elements :");
+            printArray(mykeys);
+            Console.WriteLine("\n");
             Console.ReadKey();
+        }
+
+        private static void heapSort<T>(T[] array) where T : IComparable<T>
+        {
+            int heapSize = array.Length;
+            buildMaxHeap(array);
+            for (int i = heapSize - 1; i >= 0; i--)
+            {
+                swap(array, 0, i);
+                heapSize--;
+                sink(array, heapSize, 0);
+            }
+        }
+
+        private static void buildMaxHeap<T>(T[] array) where T : IComparable<T>
+        {
+            int heapSize = array.Length;
+            for (int i = (heapSize / 2) - 1; i >= 0; i--)
+            {
+                sink(array, heapSize, i);
+            }
+        }
+
+        private static void sink<T>(T[] array, int heapSize, int toSinkPos) where T : IComparable<T>
+        {
+            if (getLeftKidPos(toSinkPos) >= heapSize)
+            {
+                // No left kid => no kid at all
+                return;
+            }
+
+            int largestKidPos;
+            bool leftIsLargest;
+
+            if (getRightKidPos(toSinkPos) >= heapSize || array[getRightKidPos(toSinkPos)].CompareTo(array[getLeftKidPos(toSinkPos)]) < 0)
+            {
+                largestKidPos = getLeftKidPos(toSinkPos);
+                leftIsLargest = true;
+            }
+            else
+            {
+                largestKidPos = getRightKidPos(toSinkPos);
+                leftIsLargest = false;
+            }
+
+            if (array[largestKidPos].CompareTo(array[toSinkPos]) > 0)
+            {
+                swap(array, toSinkPos, largestKidPos);
+
+                if (leftIsLargest)
+                {
+                    sink(array, heapSize, getLeftKidPos(toSinkPos));
+                }
+                else
+                {
+                    sink(array, heapSize, getRightKidPos(toSinkPos));
+                }
+            }
+        }
+
+        private static int getLeftKidPos(int parentPos)
+        {
+            return (2 * (parentPos + 1)) - 1;
+        }
+
+        private static int getRightKidPos(int parentPos)
+        {
+            return 2 * (parentPos + 1);
+        }
+
+        private static void swap<T>(T[] array, int x, int y) where T : IComparable<T>
+        {
+            T temp;
+            temp = array[x];
+            array[x] = array[y];
+            array[y] = temp;
+        }
+
+        private static void printArray<T>(T[] array) where T : IComparable<T>
+        {
+            foreach (T item in array)
+            {
+                Console.Write("{0} ", item);
+            }
         }
     }
 }
