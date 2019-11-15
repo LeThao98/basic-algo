@@ -7,110 +7,59 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        searching-and-sorting-algorithm: Heap Sort
-        Write a C# Sharp program to sort a list of elements using Heap sort.
+        searching-and-sorting-algorithm: Insertion  Sort
+        Write a C# Sharp program to sort a list of elements using Insertion  sort.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int[] mykeys = new int[] { 2, 5, -4, 11, 0, 18, 22, 67, 51, 6 };
-
-            //double[] mykeys = new double[] {2.22, 0.5, 2.7, -1.0, 11.2};
-
-            //string[] mykeys = new string[] {"Red", "White", "Black", "Green", "Orange"};
-
+            int[] numbers = new int[10] { 2, 5, -4, 11, 0, 18, 22, 67, 51, 6 };
             Console.WriteLine("\nOriginal Array Elements :");
-            printArray(mykeys);
-
-            heapSort(mykeys);
-
-            Console.WriteLine("\n\nSorted Array Elements :");
-            printArray(mykeys);
+            PrintIntegerArray(numbers);
+            Console.WriteLine("\nSorted Array Elements :");
+            PrintIntegerArray(InsertionSortByShift(numbers));
             Console.WriteLine("\n");
             Console.ReadKey();
         }
 
-        private static void heapSort<T>(T[] array) where T : IComparable<T>
+        private static int[] InsertionSort(int[] array)
         {
-            int heapSize = array.Length;
-            buildMaxHeap(array);
-            for (int i = heapSize - 1; i >= 0; i--)
+            for (int i = 0; i < array.Length - 1; i++)
             {
-                swap(array, 0, i);
-                heapSize--;
-                sink(array, heapSize, 0);
-            }
-        }
-
-        private static void buildMaxHeap<T>(T[] array) where T : IComparable<T>
-        {
-            int heapSize = array.Length;
-            for (int i = (heapSize / 2) - 1; i >= 0; i--)
-            {
-                sink(array, heapSize, i);
-            }
-        }
-
-        private static void sink<T>(T[] array, int heapSize, int toSinkPos) where T : IComparable<T>
-        {
-            if (getLeftKidPos(toSinkPos) >= heapSize)
-            {
-                // No left kid => no kid at all
-                return;
-            }
-
-            int largestKidPos;
-            bool leftIsLargest;
-
-            if (getRightKidPos(toSinkPos) >= heapSize || array[getRightKidPos(toSinkPos)].CompareTo(array[getLeftKidPos(toSinkPos)]) < 0)
-            {
-                largestKidPos = getLeftKidPos(toSinkPos);
-                leftIsLargest = true;
-            }
-            else
-            {
-                largestKidPos = getRightKidPos(toSinkPos);
-                leftIsLargest = false;
-            }
-
-            if (array[largestKidPos].CompareTo(array[toSinkPos]) > 0)
-            {
-                swap(array, toSinkPos, largestKidPos);
-
-                if (leftIsLargest)
+                for (int j = i + 1; j > 0; j--)
                 {
-                    sink(array, heapSize, getLeftKidPos(toSinkPos));
-                }
-                else
-                {
-                    sink(array, heapSize, getRightKidPos(toSinkPos));
+                    if (array[j - 1] > array[j])
+                    {
+                        int temp = array[j - 1];
+                        array[j - 1] = array[j];
+                        array[j] = temp;
+                    }
                 }
             }
+            return array;
         }
 
-        private static int getLeftKidPos(int parentPos)
+        private static int[] InsertionSortByShift(int[] array)
         {
-            return (2 * (parentPos + 1)) - 1;
+            for (int i = 0; i < array.Length; i++)
+            {
+                int j = i;
+                int insertionValue = array[i];
+                while (j > 0 && array[j - 1] > insertionValue)
+                {
+                    array[j] = array[j - 1];
+                    j--;
+                }
+                array[j] = insertionValue;
+            }
+            return array;
         }
 
-        private static int getRightKidPos(int parentPos)
+        private static void PrintIntegerArray(int[] array)
         {
-            return 2 * (parentPos + 1);
-        }
-
-        private static void swap<T>(T[] array, int x, int y) where T : IComparable<T>
-        {
-            T temp;
-            temp = array[x];
-            array[x] = array[y];
-            array[y] = temp;
-        }
-
-        private static void printArray<T>(T[] array) where T : IComparable<T>
-        {
-            foreach (T item in array)
+            foreach (int item in array)
             {
                 Console.Write("{0} ", item);
             }
