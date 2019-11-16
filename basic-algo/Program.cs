@@ -7,91 +7,57 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        searching-and-sorting-algorithm: Merge Sort
-        Write a C# Sharp program to sort a list of elements using Merge sort.
-        O(nlogn)
+        searching-and-sorting-algorithm: Permutation Sort
+        Write a C# Sharp program to sort a list of elements using Permutation sort.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            List<int> unsorted = new List<int>();
-            List<int> sorted = new List<int>();
+            //string str = "ABC";
+            //char[] arr = str.ToCharArray();
+            //GetPer(arr);
 
-            Random random = new Random();
-            Console.Write("Unsorted Array: ");
-            for (int i = 0; i < 10; i++)
-            {
-                unsorted.Add(random.Next(0, 100));
-                Console.Write("{0} ", unsorted[i]);
-            }
-            sorted = MergeSort(unsorted);
-            Console.Write("\nSorted Array  : ");
-            foreach (int item in sorted)
-            {
-                Console.Write("{0} ", item);
-            }
+            int a = 4; int b = 5;
+            a ^= b;
+            b ^= a;
+            a ^= b;
+            Console.WriteLine("{0} {1}", a, b);
 
             Console.ReadKey();
         }
 
-        private static List<int> MergeSort(List<int> unsorted)
+        private static void Swap(ref char a, ref char b)
         {
-            List<int> left = new List<int>();
-            List<int> right = new List<int>();
+            if (a == b) return;
 
-            if (unsorted.Count == 1)
-            {
-                return unsorted;
-            }
-
-            int middle = unsorted.Count / 2;
-            for (int i = 0; i < middle; i++)
-            {
-                left.Add(unsorted[i]);
-            }
-            for (int i = middle; i < unsorted.Count; i++)
-            {
-                right.Add(unsorted[i]);
-            }
-
-            left = MergeSort(left);
-            right = MergeSort(right);
-            return Merge(left, right);
+            a ^= b;
+            b ^= a;
+            a ^= b;
         }
 
-        private static List<int> Merge(List<int> left, List<int> right)
+        public static void GetPer(char[] list)
         {
-            List<int> merged = new List<int>();
-            while (left.Count > 0 || right.Count > 0)
+            int x = list.Length - 1;
+            GetPer(list, 0, x);
+        }
+
+        private static void GetPer(char[] list, int k, int m)
+        {
+            if (k == m)
             {
-                if (left.Count > 0 && right.Count > 0)
                 {
-                    if (left.First() < right.First())
-                    {
-                        merged.Add(left.First());
-                        left.RemoveAt(0);
-                    }
-                    else
-                    {
-                        merged.Add(right.First());
-                        right.RemoveAt(0);
-                    }
+                    Console.WriteLine(list);
                 }
-                else if (left.Count > 0)
-                {
-                    merged.Add(left.First());
-                    left.RemoveAt(0);
-                }
-                else if (right.Count > 0)
-                {
-                    merged.Add(right.First());
-                    right.RemoveAt(0);
-                }
-                else return merged;
             }
-            return merged;
+            else
+                for (int i = k; i <= m; i++)
+                {
+                    Swap(ref list[k], ref list[i]);
+                    GetPer(list, k + 1, m);
+                    Swap(ref list[k], ref list[i]);
+                }
         }
     }
 }
