@@ -7,57 +7,64 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        searching-and-sorting-algorithm: Permutation Sort
-        Write a C# Sharp program to sort a list of elements using Permutation sort.
+        searching-and-sorting-algorithm: Quick Sort
+        Write a C# Sharp program to sort a list of elements using Quick sort.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            //string str = "ABC";
-            //char[] arr = str.ToCharArray();
-            //GetPer(arr);
+            int[] arr = new int[] { 2, 5, -4, 11, 0, 18, 22, 67, 51, 6 };
 
-            int a = 4; int b = 5;
-            a ^= b;
-            b ^= a;
-            a ^= b;
-            Console.WriteLine("{0} {1}", a, b);
+            Console.WriteLine("Original array : ");
+            foreach (var item in arr)
+            {
+                Console.Write(" " + item);
+            }
+            Console.WriteLine();
+
+            QuickSort(arr, arr.Length - 1);
+
+            Console.WriteLine();
+            Console.WriteLine("Sorted array : ");
+
+            foreach (var item in arr)
+            {
+                Console.Write(" " + item);
+            }
+            Console.WriteLine();
 
             Console.ReadKey();
         }
 
-        private static void Swap(ref char a, ref char b)
+        private static void swap(ref int a, ref int b)
         {
-            if (a == b) return;
-
-            a ^= b;
-            b ^= a;
-            a ^= b;
+            var temp = a;
+            a = b;
+            b = temp;
         }
 
-        public static void GetPer(char[] list)
+        private static void QuickSort(int[] a, int maxIndex, int minIndex = 0)
         {
-            int x = list.Length - 1;
-            GetPer(list, 0, x);
-        }
-
-        private static void GetPer(char[] list, int k, int m)
-        {
-            if (k == m)
+            Random random = new Random();
+            int privotIndex = random.Next(maxIndex - minIndex);
+            int privot = a[minIndex + privotIndex];
+            int i = minIndex;
+            int j = maxIndex;
+            while (i <= j)
             {
+                while (a[i] < privot) i++;
+                while (a[j] > privot) j--;
+                if (i <= j)
                 {
-                    Console.WriteLine(list);
+                    swap(ref a[i], ref a[j]);
+                    i++;
+                    j--;
                 }
             }
-            else
-                for (int i = k; i <= m; i++)
-                {
-                    Swap(ref list[k], ref list[i]);
-                    GetPer(list, k + 1, m);
-                    Swap(ref list[k], ref list[i]);
-                }
+            if (j > minIndex) QuickSort(a, j);
+            if (i < maxIndex) QuickSort(a, maxIndex, i);
         }
     }
 }
