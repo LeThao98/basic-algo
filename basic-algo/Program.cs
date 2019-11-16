@@ -7,62 +7,91 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        searching-and-sorting-algorithm: Insertion  Sort
-        Write a C# Sharp program to sort a list of elements using Insertion  sort.
+        searching-and-sorting-algorithm: Merge Sort
+        Write a C# Sharp program to sort a list of elements using Merge sort.
+        O(nlogn)
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int[] numbers = new int[10] { 2, 5, -4, 11, 0, 18, 22, 67, 51, 6 };
-            Console.WriteLine("\nOriginal Array Elements :");
-            PrintIntegerArray(numbers);
-            Console.WriteLine("\nSorted Array Elements :");
-            PrintIntegerArray(InsertionSortByShift(numbers));
-            Console.WriteLine("\n");
-            Console.ReadKey();
-        }
+            List<int> unsorted = new List<int>();
+            List<int> sorted = new List<int>();
 
-        private static int[] InsertionSort(int[] array)
-        {
-            for (int i = 0; i < array.Length - 1; i++)
+            Random random = new Random();
+            Console.Write("Unsorted Array: ");
+            for (int i = 0; i < 10; i++)
             {
-                for (int j = i + 1; j > 0; j--)
-                {
-                    if (array[j - 1] > array[j])
-                    {
-                        int temp = array[j - 1];
-                        array[j - 1] = array[j];
-                        array[j] = temp;
-                    }
-                }
+                unsorted.Add(random.Next(0, 100));
+                Console.Write("{0} ", unsorted[i]);
             }
-            return array;
-        }
-
-        private static int[] InsertionSortByShift(int[] array)
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                int j = i;
-                int insertionValue = array[i];
-                while (j > 0 && array[j - 1] > insertionValue)
-                {
-                    array[j] = array[j - 1];
-                    j--;
-                }
-                array[j] = insertionValue;
-            }
-            return array;
-        }
-
-        private static void PrintIntegerArray(int[] array)
-        {
-            foreach (int item in array)
+            sorted = MergeSort(unsorted);
+            Console.Write("\nSorted Array  : ");
+            foreach (int item in sorted)
             {
                 Console.Write("{0} ", item);
             }
+
+            Console.ReadKey();
+        }
+
+        private static List<int> MergeSort(List<int> unsorted)
+        {
+            List<int> left = new List<int>();
+            List<int> right = new List<int>();
+
+            if (unsorted.Count == 1)
+            {
+                return unsorted;
+            }
+
+            int middle = unsorted.Count / 2;
+            for (int i = 0; i < middle; i++)
+            {
+                left.Add(unsorted[i]);
+            }
+            for (int i = middle; i < unsorted.Count; i++)
+            {
+                right.Add(unsorted[i]);
+            }
+
+            left = MergeSort(left);
+            right = MergeSort(right);
+            return Merge(left, right);
+        }
+
+        private static List<int> Merge(List<int> left, List<int> right)
+        {
+            List<int> merged = new List<int>();
+            while (left.Count > 0 || right.Count > 0)
+            {
+                if (left.Count > 0 && right.Count > 0)
+                {
+                    if (left.First() < right.First())
+                    {
+                        merged.Add(left.First());
+                        left.RemoveAt(0);
+                    }
+                    else
+                    {
+                        merged.Add(right.First());
+                        right.RemoveAt(0);
+                    }
+                }
+                else if (left.Count > 0)
+                {
+                    merged.Add(left.First());
+                    left.RemoveAt(0);
+                }
+                else if (right.Count > 0)
+                {
+                    merged.Add(right.First());
+                    right.RemoveAt(0);
+                }
+                else return merged;
+            }
+            return merged;
         }
     }
 }
