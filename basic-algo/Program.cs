@@ -7,48 +7,62 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        searching-and-sorting-algorithm: Radix Sort
-        Write a C# Sharp program to sort a list of elements using Radix sort.
+        searching-and-sorting-algorithm: Selection Sort
+        Write a C# Sharp program to sort a list of elements using Selection sort.
     */
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int[] arr = new int[] { 2, 5, -4, 11, 0, 18, 22, 67, 51, 6 };
-            Console.WriteLine("\nOriginal array : ");
-            foreach (var item in arr)
-            {
-                Console.Write(" " + item);
-            }
-
-            RadixSort(arr);
-            Console.WriteLine("\nSorted array : ");
-            foreach (var item in arr)
-            {
-                Console.Write(" " + item);
-            }
-            Console.WriteLine("\n");
-
+            SelectionSort selectionSort = new SelectionSort(10);
+            selectionSort.Sort();
             Console.ReadKey();
         }
+    }
 
-        private static void RadixSort(int[] arr)
+    public class SelectionSort
+    {
+        private List<int> list = new List<int>();
+
+        public SelectionSort(int Length)
         {
-            int i, j;
-            int[] tmp = new int[arr.Length];
-            for (int shift = 31; shift > -1; --shift)
+            Random random = new Random();
+            Console.Write("Original Array: ");
+            for (int i = 0; i < Length; i++)
             {
-                j = 0;
-                for (i = 0; i < arr.Length; ++i)
+                list.Add(random.Next(0, 100));
+                Console.Write("{0} ", list[i]);
+            }
+        }
+
+        private void Swap(int a, int b)
+        {
+            int temp = list[a];
+            list[a] = list[b];
+            list[b] = temp;
+        }
+
+        public void Sort()
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                int minIndex = i;
+                for (int j = i; j < list.Count; j++)
                 {
-                    bool move = (arr[i] << shift) >= 0;
-                    if (shift == 0 ? !move : move)
-                        arr[i - j] = arr[i];
-                    else
-                        tmp[j++] = arr[i];
+                    if (list[j] < list[minIndex]) minIndex = j;
                 }
-                Array.Copy(tmp, 0, arr, arr.Length - j, j);
+                Swap(i, minIndex);
+                Print();
+            }
+        }
+
+        private void Print()
+        {
+            Console.WriteLine();
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.Write("{0} ", list[i]);
             }
         }
     }
