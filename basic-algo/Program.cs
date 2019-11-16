@@ -8,50 +8,45 @@ namespace basic_algo
 {
     /*
         structure
-        Write a program in C# Sharp to create a nested struct to store two data for an employee in an array.
+        Write a program in C# Sharp to create a structure and assign the value and call it.
      */
 
-    internal struct employee
+    // crate a class
+    internal class aNewClass
     {
-        public string eName;
-        public dtObirth Date;
+        public int x;
+        public int y;
     }
 
-    internal struct dtObirth
+    //create a structure
+    internal struct aNewStruc
     {
-        public int Day;
-        public int Month;
-        public int Year;
+        public int x;
+        public int y;
     }
 
     public class Program
     {
         private static void Main(string[] args)
         {
-            int dd = 0, mm = 0, yy = 0;
-            int total = 2;
-            Console.Write("\n\nCreate a nested struct and store data in an array :\n");
-            Console.Write("-------------------------------------------------------\n");
-            employee[] emp = new employee[total];
-            for (int i = 0; i < total; i++)
-            {
-                Console.Write("Name of the employee : ");
-                string nm = Console.ReadLine();
-                emp[i].eName = nm;
-
-                Console.Write("Input day of the birth : ");
-                dd = Convert.ToInt32(Console.ReadLine());
-                emp[i].Date.Day = dd;
-
-                Console.Write("Input month of the birth : ");
-                mm = Convert.ToInt32(Console.ReadLine());
-                emp[i].Date.Month = mm;
-
-                Console.Write("Input year for the birth : ");
-                yy = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine();
-                emp[i].Date.Year = yy;
-            }
+            Console.Write("\n\nCreate a structure and Assign the Value and call it :\n");
+            Console.Write("---------------------------------------------------------\n");
+            aNewClass ClassNum1 = new aNewClass();
+            ClassNum1.x = 1;
+            ClassNum1.y = 2;
+            //	ClassNum2 is ClassNum1 type
+            aNewClass ClassNum2 = ClassNum1;
+            ClassNum1.x = 3;
+            ClassNum1.y = 4;
+            Console.WriteLine("\nAssign in Class:       x:{0},   y:{1}", ClassNum2.x, ClassNum2.y);
+            aNewStruc StrucNum1 = new aNewStruc();
+            StrucNum1.x = 1;
+            StrucNum1.y = 2;
+            //	StrucNum2 is StrucNum1 type
+            aNewStruc StrucNum2 = StrucNum1;
+            StrucNum1.x = 3;
+            StrucNum1.y = 4;
+            Console.WriteLine("Assign in Structure:   x:{0},    y:{1}\n\n", StrucNum2.x, StrucNum2.y);
             Console.ReadKey();
         }
     }
