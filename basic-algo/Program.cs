@@ -7,43 +7,82 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        structure 09
-        Write a program in C# Sharp to insert the information of two books.
+        structure 10
+        Write a program in C# Sharp to implement a method that returns a structure including calling the method and using its value.
      */
 
-    internal struct book
+    public struct SampStru
     {
-        public string title, author;
+        private double val;
+
+        public double Value
+        {
+            get
+            {
+                return val;
+            }
+            set
+            {
+                val = value;
+            }
+        }
+
+        public double Read()
+        {
+            return double.Parse(Console.ReadLine());
+        }
+    }
+
+    public struct Square
+    {
+        private SampStru ln;
+        private SampStru ht;
+
+        public SampStru Length
+        {
+            get { return ln; }
+            set { ln = value; }
+        }
+
+        public SampStru Breadth
+        {
+            get { return ht; }
+            set { ht = value; }
+        }
+
+        public void NewSquare()
+        {
+            SampStru rct = new SampStru();
+            Console.WriteLine("\nInput the dimensions of the Square( equal length and breadth ) : ");
+            ln = SqrLength();
+            Console.Write("breadth : ");
+            ht.Value = rct.Read();
+        }
+
+        public SampStru SqrLength()
+        {
+            SampStru rct = new SampStru();
+
+            Console.Write("length : ");
+            rct.Value = rct.Read();
+            return rct;
+        }
     }
 
     public class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
-            int nobook = 1000;
-            book[] books = new book[nobook];
-            int i, j, n = 1, k = 1;
-            Console.Write("\n\nInsert the information of two books :\n");
-            Console.Write("-----------------------------------------\n");
-            for (j = 0; j <= n; j++)
-            {
-                Console.WriteLine("Information of book {0} :", k);
-
-                Console.Write("Input name of the book : ");
-                books[j].title = Console.ReadLine();
-
-                Console.Write("Input the author : ");
-                books[j].author = Console.ReadLine();
-                k++;
-                Console.WriteLine();
-            }
-
-            for (i = 0; i <= n; i++)
-            {
-                Console.WriteLine("{0}: Title = {1},  Author = {2}", i + 1, books[i].title, books[i].author);
-                Console.WriteLine();
-            }
-            Console.WriteLine("\nPress any key to exit."); ;
+            Console.Write("\n\nMethod that returns a structure  :\n");
+            Console.Write("--------------------------------------\n");
+            var Sqre = new Square();
+            Sqre.NewSquare();
+            Console.WriteLine();
+            Console.WriteLine("Perimeter and Area of the square :");
+            Console.WriteLine("Length:    {0}", Sqre.Length.Value);
+            Console.WriteLine("Breadth:    {0}", Sqre.Breadth.Value);
+            Console.WriteLine("Perimeter: {0}", (Sqre.Length.Value + Sqre.Breadth.Value) * 2);
+            Console.WriteLine("Area:      {0}\n", Sqre.Length.Value * Sqre.Breadth.Value);
             Console.ReadKey();
         }
     }
