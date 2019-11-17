@@ -7,30 +7,18 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        structure 06
-        Write a program in C# Sharp to declares a struct with a property, a method, and a private field.
+        structure 07
+        Write a program in C# Sharp to demonstrates struct initialization using both default and parameterized constructors.
      */
 
     internal struct newStruct
     {
-        private int num;
+        public int m, n;
 
-        public int n
+        public newStruct(int pt1, int pt2)
         {
-            get
-            {
-                return num;
-            }
-            set
-            {
-                if (value < 50)
-                    num = value;
-            }
-        }
-
-        public void clsMethod()
-        {
-            Console.WriteLine("\nThe stored value is: {0}\n", num);
+            m = pt1;
+            n = pt2;
         }
     }
 
@@ -38,12 +26,17 @@ namespace basic_algo
     {
         private static void Main(string[] args)
         {
-            Console.Write("\n\nDeclares a struct with a property, amethod, a field:\n");
-            Console.WriteLine("-------------------------------------------------------");
-            newStruct newStruct = new newStruct();
-            newStruct.n = 15;
-            newStruct.clsMethod();
+            Console.Write("\n\nStruct declares using default and parameterized constructors :\n");
+            Console.Write("-----------------------------------------------------------------\n");
+            newStruct myPoint1 = new newStruct();
+            newStruct myPoint2 = new newStruct(25, 25);
+            Console.Write("\nnewStruct 1: ");
+            Console.WriteLine("m = {0}, n = {1}", myPoint1.m, myPoint1.n);
 
+            Console.Write("newStruct 2: ");
+            Console.WriteLine("m = {0}, n = {1}", myPoint2.m, myPoint2.n);
+
+            Console.WriteLine("\nPress any key to exit.");
             Console.ReadKey();
         }
     }
