@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace basic_algo
 {
     /*
-        structure 07
-        Write a program in C# Sharp to demonstrates struct initialization using both default and parameterized constructors.
+        structure 08
+        Write a program in C# Sharp to demonstrates struct initialization without using the new operator.
      */
 
     internal struct newStruct
@@ -26,17 +26,15 @@ namespace basic_algo
     {
         private static void Main(string[] args)
         {
-            Console.Write("\n\nStruct declares using default and parameterized constructors :\n");
-            Console.Write("-----------------------------------------------------------------\n");
-            newStruct myPoint1 = new newStruct();
-            newStruct myPoint2 = new newStruct(25, 25);
-            Console.Write("\nnewStruct 1: ");
-            Console.WriteLine("m = {0}, n = {1}", myPoint1.m, myPoint1.n);
+            Console.Write("\n\nStruct initialization without using the new operator :\n");
+            Console.Write("----------------------------------------------------------\n"); newStruct myPoint1 = new newStruct();
+            newStruct myPoint;
+            myPoint.m = 30;
+            myPoint.n = 20;
+            Console.Write("\nnewStruct : ");
+            Console.WriteLine("m = {0}, n = {1}", myPoint.m, myPoint.n);
 
-            Console.Write("newStruct 2: ");
-            Console.WriteLine("m = {0}, n = {1}", myPoint2.m, myPoint2.n);
-
-            Console.WriteLine("\nPress any key to exit.");
+            Console.WriteLine("\nPress any key to exit."); ;
             Console.ReadKey();
         }
     }
