@@ -9,7 +9,7 @@ namespace basic_algo
 {
     /*
         file-handling 01
-        Write a program in C# Sharp to create a blank file in the disk newly.
+        Write a program in C# Sharp to remove a file from the disk.
      */
 
     public class Program
@@ -17,19 +17,14 @@ namespace basic_algo
         private static void Main()
         {
             string fileName = @"mytest.txt";
-            try
+            if (File.Exists(fileName))
             {
-                Console.Write("\n\n Create a file named mytest.txt in the disk:\n");
-                Console.Write("--------------------------------------------------\n");
-                //Create the file
-                using (FileStream fileStream = File.Create(fileName))
-                {
-                    Console.WriteLine(" A file created with name mytest.txt\n\n");
-                }
+                File.Delete(fileName);
+                Console.WriteLine(" The file {0} deleted successfully.\n", fileName);
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine(e.ToString());
+                Console.WriteLine(" File does not exist.");
             }
             Console.ReadKey();
         }
